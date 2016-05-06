@@ -12,7 +12,9 @@
          http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
          default-autowire="byName" default-lazy-init="false">
   <context:property-placeholder location="classpath*:db/jdbc.properties"/>
- 	<!-- 自动扫面注解包 --> 
+ 	<!-- 自动扫面注解包  -->
+	
+	<context:annotation-config/>
 	<context:component-scan base-package="com.jsg" />
 <!-- 数据源 --> 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
@@ -31,6 +33,12 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		 <property name="dataSource" ref="dataSource" />
+		 <!-- 分包开发时，配置扫描子包下的hibernate文件 -->
+		 <property name="mappingJarLocations">
+		 	<list>
+		 		<value>WEB-INF/lib/*.jar</value>
+		 	</list>
+		 </property>
 		 <property name="mappingLocations" value="classpath:/**/*.hbm.xml"/><!-- 使用基于xml配置方式 -->
 		<!--<property name="packagesToScan">使用注解方式
 			<list>
@@ -44,14 +52,16 @@
 				hibernate.show_sql=false
 				hibernate.jdbc.batch_size=50
 				hibernate.hbm2ddl.auto=update
+				hibernate.current_session_context_class=org.springframework.orm.hibernate4.SpringSessionContext
 			</value>
 		</property>
 	</bean>
-	<!-- 用于注入到GeneralDao中 --> 
+	<!-- 用于注入到GeneralDao中  
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
+	
 		
-	</bean>
+	</bean>-->
 	  <!-- 配置事务管理  hibernate--> 
 	<bean id="txManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
