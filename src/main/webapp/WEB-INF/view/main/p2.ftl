@@ -84,7 +84,7 @@
                         </a>
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <ul class="nav nav-list menu-second">
-                                <li><a href="#"><i class="icon-user"></i> 子选项1</a></li>
+                                <li><a href="#"><i class="icon-user"></i> 用户管理</a></li>
                                 <li><a href="#"><i class="icon-edit"></i> 子选项2</a></li>
                                 <li><a href="#"><i class="icon-trash"></i> 子选项3</a></li>
                                 <li><a href="#"><i class="icon-list"></i> 子选项4</a></li>

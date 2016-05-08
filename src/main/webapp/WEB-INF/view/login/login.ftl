@@ -50,7 +50,7 @@
                             </p>
                         </div>
                         <div class="col-xs-6 link">
-                            <p class="text-center remove-margin"><small>还没注册?</small> <a href="register.html" ><small>注册</small></a>
+                            <p class="text-center remove-margin"><small>还没注册?</small> <a href="#" onclick="toRegister()" ><small>注册</small></a>
                             </p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
         s.src = "js/bootlint.js";
         document.body.appendChild(s)
     })();*/
-    
+    //验证登录信息，进行登录
     function toLogin(){
     	$.ajax({
     		url:"toLogin.do",
@@ -91,8 +91,12 @@
     			}
     		}
     	});
-    
-    }
+      }
+      //跳转到注册页面
+      function toRegister(){
+      	$("#userLogin").attr('action','toRegister.do');
+    	$("#userLogin").submit();
+      }
 </script>
 </body>
 </html>
