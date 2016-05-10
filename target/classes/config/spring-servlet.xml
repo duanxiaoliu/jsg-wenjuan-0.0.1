@@ -33,9 +33,11 @@
      					<value>/hello.do</value>
      					<value>/login.do</value> 
      					<value>/toLogin.do</value>  
+     					<value>/toRegister.do</value>  
      					<value>/toMain.do</value>  
      					<value>/queryStudent.do</value>  
      					<value>/authCode.do</value>  
+     					<value>/saveRegister.do</value>
      				</list>   
 				</property> 
 			</bean>  

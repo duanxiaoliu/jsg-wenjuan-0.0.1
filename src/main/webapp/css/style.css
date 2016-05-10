@@ -1,3 +1,9 @@
+  .formTitle{float:left;text-align:right;margin-right:5px;line-height:35px;display:inline;}
+  .queryDiv{
+  	background-color:#EDF6FA;
+  	padding:15px 15px 1px;
+  	border:1px solid #D7E4EA;
+  }
 *{
     box-sizing: border-box;
     
@@ -5,7 +11,7 @@
 body{
     background-image:url("../img/bg-login.png");
     background-repeat: repeat-y;
-    background-size: 100%;
+    background-size: 17%;
 }
 .text-white {
     color: #fff;

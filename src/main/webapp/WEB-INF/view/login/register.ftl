@@ -76,7 +76,7 @@
     
     //跳转到登录页面
       function toLogin(){
-      	$("#saveRegister").attr('action','toLogin.do');
+      	$("#saveRegister").attr('action','login.do');
     	$("#saveRegister").submit();
       }
         //进行注册
