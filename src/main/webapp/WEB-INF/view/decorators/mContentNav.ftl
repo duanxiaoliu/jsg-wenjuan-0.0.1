@@ -1,5 +1,5 @@
 <!--右侧内容开始-->
-<div class="col-xs-10" style="margin-top:40px;">
+<div class="col-xs-10" style="margin-top:40px;margin-left:16.7%;">
     <br/>
     <ol class="breadcrumb">
         <li class="active"><span class="glyphicon glyphicon-home"></span>&nbsp;后台首页</li>
