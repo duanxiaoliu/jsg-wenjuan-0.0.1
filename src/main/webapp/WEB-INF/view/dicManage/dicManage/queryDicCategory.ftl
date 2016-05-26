@@ -15,7 +15,7 @@
 <div id="contentwrapper">
 	<div class="main_content">
 		<div class="row-fluid">
-			<from>			
+			<form id="queryDicCategory" action="${contextPath}/dicManage/dicManage/queryDicCategory.do" mothod="post">			
 				<input type="hidden" name="pageNo" id="pageNo" value="${(page.currentPageNo)!""}"/>	
 					<div class="col-xs-12">
 					
@@ -44,7 +44,7 @@
 							<div class="col-xs-10">
 								<div class="dt_actions">
 									<div class="row-fluid">
-										<button class="btn btn-info" type="button" onclick="addDicInfo()">新增</button>
+										<button class="btn btn-info" type="button" onclick="addDicCategory()">新增</button>
 									</div>
 								</div>
 							</div>
@@ -85,7 +85,11 @@
 	</div>
 </div>
 <script>
-
+	//新增
+	function addDicCategory(){
+		$('#queryDicCategory').attr('action',"${contextPath}/dicManage/dicManage/jsg-add/addDicCategory.do");
+		$('#queryDicCategory').submit();
+	}
 
     $(function () {
         $('dt').click(function () {

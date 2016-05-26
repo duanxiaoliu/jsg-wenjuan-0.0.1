@@ -23,7 +23,7 @@
             [#include "header.ftl"]
             <!-- main content -->
             [#include "mContentNav.ftl"]
-            <div style="margin-left:254px; float:left;width:82%">
+            <div style="margin-left:224px; float:left;width:82%">
             <sitemesh:write property="body"/>
             </div>
              [#include "mContentBottom.ftl"]
