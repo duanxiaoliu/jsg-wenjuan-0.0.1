@@ -9,8 +9,13 @@
 	    <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
 	    <link href="${contextPath}/css/login/login.css" rel="stylesheet">
 	    <link href="${contextPath}/css/style.css" rel="stylesheet">
+	    <link rel="stylesheet" href="${contextPath}/css/font-awesome.min.css"/>
 	    <script src="${contextPath}/js/jquery-1.11.3.js"></script>
 		<script src="${contextPath}/js/bootstrap.js"></script>
+		<script type="text/javascript" src="${contextPath}/js/jquery.validate.js"></script>
+        <script type="text/javascript" src="${contextPath}/js/jquery.form.js"></script>
+        <script type="text/javascript" src="${contextPath}/js/bootbox4/bootbox.min.js"></script>
+        <script type="text/javascript" src="${contextPath}/js/jsg_base.js"></script>
 		<sitemesh:write property="head"/>
 		<style>
 			

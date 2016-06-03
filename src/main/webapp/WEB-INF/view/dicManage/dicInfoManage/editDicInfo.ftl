@@ -21,7 +21,7 @@
 						<div class="row-fluid">
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">分类名称<span class="f_waring">*</span></span>
+									<span class="formTitle">字典名称<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" id="name" name="name" value="${(dicCategory.name)!""}"/>
@@ -29,7 +29,7 @@
 							</div>
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">分类编码<span class="f_waring">*</span></span>
+									<span class="formTitle">字典编码<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" id="code" name="code" value="${(dicCategory.code)!""}"/>

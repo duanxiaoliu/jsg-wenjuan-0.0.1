@@ -207,3 +207,17 @@ footer{
 	background:#EDF7FA;
 	
 }
+.f_waring{
+	font-size:13px;color:#ff0000;font-family:helvetica,arial,sans-serif
+}
+label.error{
+	color:Red;
+    font-size:12px;
+    border:0;
+}
+
+.Divider{
+	margin-top:10px;
+	margin-bottom:10;
+	
+}
