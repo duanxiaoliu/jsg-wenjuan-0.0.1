@@ -64,10 +64,10 @@
 											<td><#if dicInfo.code ??>${dicInfo.code !""}</#if></td>
 											<td>
 												<#if dicInfo.status ?? && dicInfo.status=='1'>
-													<i id="${dicInfo.id}_dicStatus" class="icon-green" title="启用"></i>
+													<i id="${dicInfo.id}_dicStatus" class="icon-play" title="已启用"></i>
 													<a id="${dicInfo.id}_dicStatus_ope" href="###" onclick="stopDic('${dicInfo.id}')" title="停用"><i class="icon-stop" ></i></a>
 												<#else>
-													<i id="${dicInfo.id}_dicStatus" class="icon-green" title="停用"></i>
+													<i id="${dicInfo.id}_dicStatus" class="icon-stop" title="已停用"></i>
 													<a id="${dicInfo.id}_dicStatus_ope" href="###" onclick="startDic('${dicInfo.id}')" title="启用"><i class="icon-play" ></i></a>
 												</#if>
 											</td>
@@ -140,7 +140,62 @@
             $(this).parent().find('dd').show().end().siblings().find('dd').hide();
         });
     });
-    
+    //启用
+    function startDic(id){
+    	$.ajax({
+    		url:"${contextPath}/dicManage/dicInfoManage/ope-update/startDic.do",
+    		async:false,
+    		cache:false,
+    		type:"POST",
+    		data:{id:id},
+    		dataType:"json",
+    		success:function(data){
+    			var dicName = data.name;
+    			var dicId = data.id;
+    			var flag = data.comments;
+    			if(flag!=null){
+    				$("#"+dicId+"_dicStatus").attr("class","icon-play");
+    				$("#"+dicId+"_dicStatus").attr("title","启用");
+    				$("#"+dicId+"_dicStatus_ope").attr("title","停用");
+    				$("#"+dicId+"_dicStatus_ope").attr("onclick","stopDic('"+dicId+"')");
+    				$("#"+dicId+"_dicStatus_ope").html("<i class='icon-stop'>");
+    			}else{
+    				alert("字典已删除，请刷新页面后再操作！");
+    			}
+    		},
+    		error:function(){
+    			alert("操作失败！");
+    		}
+    	});
+    }
+    //禁用
+    function stopDic(id){
+   		 $.ajax({
+    		url:"${contextPath}/dicManage/dicInfoManage/ope-update/stopDic.do",
+    		async:false,
+    		cache:false,
+    		type:"POST",
+    		data:{id:id},
+    		dataType:"json",
+    		success:function(data){
+    			var dicName = data.name;
+    			var dicId = data.id;
+    			var flag = data.comments;
+    			if(flag!=null){
+    				$("#"+dicId+"_dicStatus").attr("class","icon-stop");
+    				$("#"+dicId+"_dicStatus").attr("title","停用");
+    				$("#"+dicId+"_dicStatus_ope").attr("title","启用");
+    				$("#"+dicId+"_dicStatus_ope").attr("onclick","startDic('"+dicId+"')");
+    				$("#"+dicId+"_dicStatus_ope").html("<i class='icon-play'>");
+    			}else{
+    				alert("字典已删除，请刷新页面后再操作！");
+    			}
+    		},
+    		error:function(){
+    			alert("操作失败！");
+    		}
+    	});
+    }
 </script>
 </body>
 </html>

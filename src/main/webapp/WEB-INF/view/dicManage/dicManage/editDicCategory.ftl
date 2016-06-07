@@ -6,15 +6,15 @@
 		<div>
 			<h4>
 				<#if dicCategory ??>
-					修改数据字典
+					修改数据字典分类
 				<#else>
-					新增数据字典
+					新增数据字典分类
 				</#if>
 			</h4>
 		</div>
 		<hr class="Divider"/>
 		<div class="row-fluid">
-			<form action="${contextPath}/dicManage/dicManage/ope-save/saveDicCategory.do" id="saveDicCategory" method="post">	
+			<form action="${contextPath}/dicManage/dicManage/ope-save/saveDicCategory.do" id="saveDicCategory" method="post">		
 				<input type="hidden" name="id" id="id" value="${(dicCategory.id)!""}"/>		
 					<div class="col-xs-12">
 					
