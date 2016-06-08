@@ -72,10 +72,10 @@
 												</#if>
 											</td>
 											<td>
-												<a href="#" title="上移"><i class="icon-circle-arrow-up"></i></a>
-												<a href="#" title="下移"><i class="icon-circle-arrow-down"></i></a>
-												<a href="#" title="修改" onclick="editDicInfo('${dicInfo.id !""}')"><i class="icon-pencil"></i></a>
-												<a href="#" title="删除" onclick="delDicInfo('${dicInfo.id !""}')"><i class="icon-trash"></i></a>
+												<a href="###" title="上移" onclick="upDic('${dicInfo.id}')"><i class="icon-circle-arrow-up"></i></a>
+												<a href="###" title="下移" onclick="downDic('${dicInfo.id}')"><i class="icon-circle-arrow-down"></i></a>
+												<a href="###" title="修改" onclick="editDicInfo('${dicInfo.id}')"><i class="icon-pencil"></i></a>
+												<a href="###" title="删除" onclick="delDicInfo('${dicInfo.id}')"><i class="icon-trash"></i></a>
 												
 											</td>
 										</tr>
@@ -134,7 +134,31 @@
 		$('#queryDicInfo').attr('action',"${contextPath}/dicManage/dicInfoManage/ope-update/editDicInfo.do?id="+id);
 		$('#queryDicInfo').submit();
 	}
-	
+	//删除
+	function delDicInfo(id){
+		basejs.confirm("注意，确定要删除吗？",function(r){
+			if(r){
+		    	$.ajax({
+		    		url:"${contextPath}/dicManage/dicInfoManage/ope-del/delDicInfo.do",
+		    		async:false,
+		    		cache:false,
+		    		type:"POST",
+		    		data:{id:id},
+		    		dataType:"text",
+		    		success:function(data){
+		    			if(data=='success'){
+		    				queryDicInfo();
+		    			}else{
+		    				alert("操作失败！");
+		    			}
+		    		},
+		    		error:function(){
+		    			alert("操作失败！");
+		    		}
+		    	});	
+	    	}
+    	});
+	}
     $(function () {
         $('dt').click(function () {
             $(this).parent().find('dd').show().end().siblings().find('dd').hide();
@@ -189,6 +213,48 @@
     				$("#"+dicId+"_dicStatus_ope").html("<i class='icon-play'>");
     			}else{
     				alert("字典已删除，请刷新页面后再操作！");
+    			}
+    		},
+    		error:function(){
+    			alert("操作失败！");
+    		}
+    	});
+    }
+    //上移
+    function upDic(id){
+   		 $.ajax({
+    		url:"${contextPath}/dicManage/dicInfoManage/ope-update/upDic.do",
+    		async:false,
+    		cache:false,
+    		type:"POST",
+    		data:{id:id,dicCategoryId:$('#dicCategoryId').val()},
+    		dataType:"text",
+    		success:function(data){
+    			if(data=='success'){
+    				queryDicInfo();
+    			}else{
+    				alert("操作失败！");
+    			}
+    		},
+    		error:function(){
+    			alert("操作失败！");
+    		}
+    	});
+    }
+        //下移
+    function downDic(id){
+   		 $.ajax({
+    		url:"${contextPath}/dicManage/dicInfoManage/ope-update/downDic.do",
+    		async:false,
+    		cache:false,
+    		type:"POST",
+    		data:{id:id,dicCategoryId:$('#dicCategoryId').val()},
+    		dataType:"text",
+    		success:function(data){
+    			if(data=='success'){
+    				queryDicInfo();
+    			}else{
+    				alert("操作失败！");
     			}
     		},
     		error:function(){

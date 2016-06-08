@@ -79,6 +79,7 @@
 								</div>
 								<div class="col-xs-6" style="margin-top:20px;">
 									<button type="button" class="btn btn-info" onclick="saveDicInfo()">保存</button>
+									<button type="button" class="btn" onclick="goList()">取消</button>
 								</div>
 							</div>
 						</div>
@@ -96,12 +97,32 @@
     //表单验证
     $("#saveDicInfo").validate({
 		rules:{
-			name:{ required:true},
-			code:{required:true}
+			name:{ required:true,
+				   remote:{
+				   		type:"POST",
+				   		url:"${contextPath}/dicManage/dicManage/ope-check/checkDicNameExist.do",
+				   		data:{id:function(){return $("#id").val();},
+				   			  dicCategoryId:function(){return $("#dicCategoryId").val();},
+				   			  name:function(){return $("#name").val();}
+				   		}
+				   }
+			},
+			code:{required:true
+					remote:{
+				   		type:"POST",
+				   		url:"${contextPath}/dicManage/dicManage/ope-check/checkDicCodeExist.do",
+				   		data:{id:function(){return $("#id").val();},
+				   			  dicCategoryId:function(){return $("#dicCategoryId").val();},
+				   			  code:function(){return $("#code").val();}
+				   		}
+				   }
+			}
 		},
 		messages:{
-			name:{required:"分类名称不能为空"},
-			code:{required:"分类编码不能为空"}
+			name:{required:$.format("字典名称不能为空"),
+				  remote:$.format("字典名称已存在")},
+			code:{required:$.format("字典编码不能为空"),
+				  remote:$.format("字典编码已存在")}
 		}
 	});
 	//保存
@@ -109,6 +130,10 @@
 		$("#saveDicInfo").attr('action',"${contextPath}/dicManage/dicInfoManage/ope-save/saveDicInfo.do");
 		$("#saveDicInfo").submit();
 	}
+		//返回列表
+	function goList(){
+    	window.location.href="${contextPath}/dicManage/dicInfoManage/ope-query/queryDicInfo.do?flag=1";
+    }
 </script>
 </body>
 </html>

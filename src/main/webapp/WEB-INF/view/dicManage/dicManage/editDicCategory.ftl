@@ -57,6 +57,7 @@
 								</div>
 								<div class="col-xs-6" style="margin-top:20px;">
 									<button type="button" class="btn btn-info" onclick="saveDicCategory()">保存</button>
+									<button type="button" class="btn" onclick="goList()">取消</button>
 								</div>
 							</div>
 						</div>
@@ -74,12 +75,30 @@
     //表单验证
     $("#saveDicCategory").validate({
 		rules:{
-			name:{ required:true},
-			code:{required:true}
+			name:{ required:true,
+					remote:{
+				   		type:"POST",
+				   		url:"${contextPath}/dicManage/dicManage/ope-check/checkDicCategoryNameExist.do",
+				   		data:{id:function(){return $("#id").val();},
+				   			  name:function(){return $("#name").val();}
+				   		}
+				   }
+		   },
+			code:{required:true,
+					remote:{
+				   		type:"POST",
+				   		url:"${contextPath}/dicManage/dicManage/ope-check/checkDicCategoryCodeExist.do",
+				   		data:{id:function(){return $("#id").val();},
+				   			  code:function(){return $("#code").val();}
+				   		}
+				   }
+			   }
 		},
 		messages:{
-			name:{required:"分类名称不能为空"},
-			code:{required:"分类编码不能为空"}
+			name:{required:"分类名称不能为空",
+				  remote:"分类名称已存在"},
+			code:{required:"分类编码不能为空",
+				  remote:"分类编码已存在"}
 		}
 	});
 	//保存
@@ -87,6 +106,10 @@
 		$("#saveDicCategory").attr('action',"${contextPath}/dicManage/dicManage/ope-save/saveDicCategory.do");
 		$("#saveDicCategory").submit();
 	}
+	//返回列表
+	function goList(){
+    	window.location.href="${contextPath}/dicManage/dicManage/ope-query/queryDicCategory.do?flag=1";
+    }
 </script>
 </body>
 </html>
