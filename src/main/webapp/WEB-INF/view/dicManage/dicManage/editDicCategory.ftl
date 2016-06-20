@@ -62,7 +62,7 @@
 							</div>
 						</div>
 					</div>
-			</from>
+			</form>
 		</div>
 	</div>
 </div>

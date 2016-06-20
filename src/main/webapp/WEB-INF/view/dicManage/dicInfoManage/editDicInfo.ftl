@@ -84,7 +84,7 @@
 							</div>
 						</div>
 					</div>
-			</from>
+			</form>
 		</div>
 	</div>
 </div>
@@ -107,7 +107,7 @@
 				   		}
 				   }
 			},
-			code:{required:true
+			code:{required:true,
 					remote:{
 				   		type:"POST",
 				   		url:"${contextPath}/dicManage/dicManage/ope-check/checkDicCodeExist.do",
@@ -119,10 +119,10 @@
 			}
 		},
 		messages:{
-			name:{required:$.format("字典名称不能为空"),
-				  remote:$.format("字典名称已存在")},
-			code:{required:$.format("字典编码不能为空"),
-				  remote:$.format("字典编码已存在")}
+			name:{required:"字典名称不能为空",
+				  remote:"字典名称已存在"},
+			code:{required:"字典编码不能为空",
+				  remote:"字典编码已存在"}
 		}
 	});
 	//保存
