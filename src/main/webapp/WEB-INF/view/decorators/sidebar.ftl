@@ -17,7 +17,7 @@
 
             <div name="menuDiv" id="collapseOne" class="panel-collapse collapse " >
                 <ul class="nav nav-list menu-second">
-                    <li><a id="DicManage" href="${contextPath}/dicManage/dicManage/queryDicCategory.do?menuPid='collapseOne'&menuId='DicManage'"><i class="icon-book"></i>字典管理</a></li>
+                    <li><a id="DicManage" href="${contextPath}/dicManage/dicManage/queryDicCategory.do?menuPid='collapseOne'&menuId='DicManage'&menutext=系统管理 \ 字曲管理"><i class="icon-book"></i>字典管理</a></li>
                     <li><a href="p2.html"><i class="icon-edit"></i> 图表p2</a></li>
                     <li><a href="p3.html"><i class="icon-trash"></i> p3</a></li>
                     <li><a href="#"><i class="icon-list"></i> 子选项4</a></li>
@@ -31,7 +31,7 @@
             </a>
             <div name="menuDiv" id="collapseTwo" class="panel-collapse collapse">
                 <ul class="nav nav-list menu-second">
-                    <li><a id="userManage" href="${contextPath}/userManage/userManage/queryUserInfo.do?menuPid='collapseTwo'&menuId='userManage'"><i class="icon-user"></i> 用户管理</a></li>
+                    <li><a id="userManage" href="${contextPath}/userManage/userManage/queryUserInfo.do?menuPid='collapseTwo'&menuId='userManage'&menutext=用户管理 \ 用户管理"><i class="icon-user"></i> 用户管理</a></li>
                     <li><a href="#"><i class="icon-edit"></i> 子选项2</a></li>
                     <li><a href="#"><i class="icon-trash"></i> 子选项3</a></li>
                     <li><a href="#"><i class="icon-list"></i> 子选项4</a></li>
