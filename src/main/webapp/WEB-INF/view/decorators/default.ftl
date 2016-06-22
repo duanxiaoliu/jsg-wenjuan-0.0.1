@@ -16,6 +16,8 @@
         <script type="text/javascript" src="${contextPath}/js/jquery.form.js"></script>
         <script type="text/javascript" src="${contextPath}/js/bootbox4/bootbox.min.js"></script>
         <script type="text/javascript" src="${contextPath}/js/jsg_base.js"></script>
+        <script type="text/javascript" src="${contextPath}/js/formcheck.js"></script>
+        <script type="text/javascript" src="${contextPath}/js/myform_message_cn.js"></script>
 		<sitemesh:write property="head"/>
 		<style>
 			

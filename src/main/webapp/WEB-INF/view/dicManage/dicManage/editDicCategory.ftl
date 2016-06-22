@@ -4,7 +4,7 @@
 <div id="contentwrapper">
 	<div class="main_content">
 		<div>
-			<h4>
+			<h4 class="pageTitle">
 				<#if dicCategory ??>
 					修改数据字典分类
 				<#else>

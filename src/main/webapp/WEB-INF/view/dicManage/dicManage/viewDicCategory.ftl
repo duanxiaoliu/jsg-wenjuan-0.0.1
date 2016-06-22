@@ -4,7 +4,7 @@
 <div id="contentwrapper">
 	<div class="main_content">
 		<div>
-			<h4>
+			<h4 class="pageTitle">
 				查看数据字典
 			</h4>
 		</div>

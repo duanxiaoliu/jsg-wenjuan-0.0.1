@@ -4,9 +4,14 @@
 <body>
 <div id="contentwrapper">
 	<div class="main_content">
-		<span style="margin-left:90%;">
-			<button class="btn" onclick="goToList()" type="button">返回列表</button>
-		</span>
+		<div>
+			<span class="pageTitle">
+				数据字典列表
+			</span>
+			<span style="margin-left:70%;">
+				<button class="btn" onclick="goToList()" type="button">返回列表</button>
+			</span>
+		</div>
 		<hr class="Divider"/>
 		<div class="row-fluid">
 			<form id="queryDicInfo" action="${contextPath}/dicManage/dicInfoManage/ope-query/queryDicInfo.do" method="post">			
