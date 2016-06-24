@@ -142,7 +142,7 @@
 		$('#queryUser').submit();
 	}
 	//修改
-	function updateUser(id){
+	function editUser(id){
 		$('#queryUser').attr('action','${contextPath}/userManage/userManage/ope-update/updateUserInfo.do?id='+id);
 		$('#queryUser').submit();
 	}
@@ -150,7 +150,7 @@
 	function delUser(id){
 		basejs.confirm("注意，确定要删除吗？",function(r){
 			if(r){
-				var url = "${contextPath}/userManage/userManage/ope-del/delUser/"+id+".do";
+				var url = "${contextPath}/userManage/userManage/ope-del/delUserInfo/"+id+".do";
 				$.ajax({
 					url:url,
 					async:false,
