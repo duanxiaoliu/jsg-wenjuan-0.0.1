@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="${contextPath}/img/logo.png"/>
-    <title>物资管理调度系统</title>
+    <title>员工管理系统</title>
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="${contextPath}/css/mmss.css"/>
     <link rel="stylesheet" href="${contextPath}/css/font-awesome.min.css"/>
@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="contentwrapper">
-	<h1 align="center" class="center text-white">物资管理调度系统</h1>
+	<h1 align="center" class="center text-white">员工管理系统</h1>
 </div>
 <script>
 

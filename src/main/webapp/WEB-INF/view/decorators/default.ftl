@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>物资管理调度系统</title>
+        <title>员工管理系统</title>
         <link rel="icon" href="img/logo.png"/>
 	    <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
 	    <link href="${contextPath}/css/login/login.css" rel="stylesheet">

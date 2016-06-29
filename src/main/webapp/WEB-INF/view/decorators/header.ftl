@@ -2,7 +2,7 @@
     <div class="container-fluid navbar-fixed-top bg-primary">
         <ul class="nav navbar-nav  left">
             <li class="text-white h4">
-                &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-leaf"></span>&nbsp;&nbsp;<b>物资管理调度系统</b>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-leaf"></span>&nbsp;&nbsp;<b>员工管理系统</b>
             </li>
         </ul>
         <ul class="nav navbar-nav nav-pills right ">

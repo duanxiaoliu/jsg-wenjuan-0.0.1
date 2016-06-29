@@ -19,53 +19,12 @@
 				<div class="col-xs-12">
 					<div class="row-fluid">
 						<div class="col-xs-6">
-							<span class="formTitle">姓名</span>
+							<span class="formTitle">客户姓名</span>
 							<input type="text" class="col-xs-5" id="userName" name="userName"/>
 						</div>
 						<div class="col-xs-6">
-							<span class="formTitle">登录名</span>
+							<span class="formTitle">客户代码</span>
 							<input type="text" class="col-xs-5" id="loginName" name="loginName"/>
-						</div>
-					</div>
-					
-					<div class="row-fluid">
-						<div class="col-xs-6">
-							<span class="formTitle">性别</span>
-							<select size="1" id="genderDic" class="col-xs-5" name="genderDic.id" aria-controls="dt_gal">
-								<option value="">请选择...</option>
-								<#if user.genderDic ??>
-									<#list genderDicList as dic>
-										<#if dic.id == user.genderDic.id>
-											<option value="${dic.id}" selected="selected">${dic.name}</option>
-										<#else>
-											<option value="${dic.id}">${dic.name}</option>
-										</#if>	
-									</#list>
-								<#else>
-									<#list genderDicList as dic>
-										<option value="${dic.id}">${dic.name}</option>
-									</#list>
-								</#if>
-							</select>
-						</div>
-						<div class="col-xs-6">
-							<span class="formTitle">状态</span>
-							<select size="1" id="statusDic" class="col-xs-5" name="statusDic.id" aria-controls="dt_gal">
-								<option value="">请选择...</option>
-								<#if user.statusDic ??>
-									<#list statusDicList as dic>
-										<#if dic.id == user.statusDic.id>
-											<option value="${dic.id}" selected="selected">${dic.name}</option>
-										<#else>
-											<option value="${dic.id}">${dic.name}</option>
-										</#if>	
-									</#list>
-								<#else>
-									<#list statusDicList as dic>
-										<option value="${dic.id}">${dic.name}</option>
-									</#list>
-								</#if>
-							</select>
 						</div>
 					</div>
 				</div>
@@ -91,10 +50,11 @@
 							<thead>
 								<tr>
 									<th>序号</th>
-									<th>人员名称</th>
-									<th>登录名</th>
-									<th>性别</th>
-									<th>状态</th>
+									<th>客户名称</th>
+									<th>客户代码</th>
+									<th>加班费</th>
+									<th>是否有餐补</th>
+									<th>月平均工作日天数</th>
 									<th>操作</th>
 								</tr>
 							</thead>

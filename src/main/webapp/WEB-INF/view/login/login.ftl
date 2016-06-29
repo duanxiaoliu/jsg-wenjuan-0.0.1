@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="img/logo.png"/>
-    <title>物资管理调度系统</title>
+    <title>员工管理系统</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/login/login.css" rel="stylesheet">
 
@@ -13,7 +13,7 @@
 <body>
 <div class="box">
     <br/>
-    <h1 class="text-center text-white"><span class="glyphicon glyphicon-leaf"></span>&nbsp;&nbsp;物资管理调度系统</h1>
+    <h1 class="text-center text-white"><span class="glyphicon glyphicon-leaf"></span>&nbsp;&nbsp;员工管理系统</h1>
     <div class="login-box">
         <div class="login-title text-center">
             <h1><small>登录</small></h1>
@@ -47,10 +47,6 @@
                     <div class="form-group">
                         <div class="col-xs-6 link">
                             <p class="text-center remove-margin"><small>忘记密码？</small> <a href="javascript:void(0)" ><small>找回</small></a>
-                            </p>
-                        </div>
-                        <div class="col-xs-6 link">
-                            <p class="text-center remove-margin"><small>还没注册?</small> <a href="#" onclick="toRegister()" ><small>注册</small></a>
                             </p>
                         </div>
                     </div>
