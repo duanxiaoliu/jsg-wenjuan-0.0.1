@@ -17,14 +17,14 @@
             </li>
             <li class="bg-info dropdown">
                 <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-user"></span>&nbsp;<span>${user_key}</span><span class="caret"></span>
+                    <span class="glyphicon glyphicon-user"></span>&nbsp;<span>${user_key!""}</span><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li class="text-center"><a href="#"><span class="text-primary">账号设置</span></a></li>
                     <li class="text-center"><a href="#"><span class="text-primary">消息设置</span></a></li>
                     <li class="text-center"><a href="#"><span class="text-primary">帮助中心</span></a></li>
                     <li class="divider"><a href="#"></a></li>
-                    <li class="text-center"><a href="login.html"><span class="text-primary">退出</span></a></li>
+                    <li class="text-center"><a href="${contextPath}/unLogin.do"><span class="text-primary">退出</span></a></li>
                 </ul>
             </li>
         </ul>

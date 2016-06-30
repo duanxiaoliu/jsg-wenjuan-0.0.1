@@ -41,13 +41,13 @@
         <div class="panel panel-default menu-first">
             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"
                aria-expanded="false" aria-controls="collapseThree">
-                <i class="icon-book icon-large"></i> 其他管理</a>
+                <i class="icon-book icon-large"></i> 员工管理</a>
             </a>
 
             <div name="menuDiv" id="collapseThree" class="panel-collapse collapse">
                 <ul class="nav nav-list menu-second">
-                    <li><a href="#"><i class="icon-user"></i> 子选项1</a></li>
-                    <li><a href="#"><i class="icon-edit"></i> 子选项2</a></li>
+                    <li><a id="employeeManage" href="${contextPath}/employeeManage/customerManage/queryCustomer.do?menuPid='collapseThree'&menuId='employeeManage'&menutext=员工管理 \ 客户信息维护"><i class="icon-user"></i> 客户信息维护</a></li>
+                    <li><a href="#"><i class="icon-edit"></i> 员工信息维护</a></li>
                     <li><a href="#"><i class="icon-trash"></i> 子选项3</a></li>
                     <li><a href="#"><i class="icon-list"></i> 子选项4</a></li>
                 </ul>
