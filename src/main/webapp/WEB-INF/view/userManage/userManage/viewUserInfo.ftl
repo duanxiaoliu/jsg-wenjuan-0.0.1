@@ -24,7 +24,7 @@
 									<span class="formTitle">用户名称<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="name" name="name" value="${(user.name)!""}" readonly="readonly"/>
+									<input type="text" class="col-xs-9" id="name" name="name" value="${(user.name)!""}" disabled/>
 								</div>
 							</div>
 							<div class="col-xs-6">
@@ -32,7 +32,7 @@
 									<span class="formTitle">性别<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<select size="1" id="genderDic" class="col-xs-9" name="genderDic.id" aria-controls="dt_gal"  readonly="readonly">
+									<select size="1" id="genderDic" class="col-xs-9" name="genderDic.id" aria-controls="dt_gal" disabled>
 										<option value="">请选择...</option>
 										<#if user.genderDic ??>
 											<#list genderDicList as dic>
@@ -58,7 +58,7 @@
 									<span class="formTitle">证件类型</span>
 								</div>
 								<div class="col-xs-6">
-									<select size="1" id="cerTypeDic" class="col-xs-9" name="cerTypeDic.id" aria-controls="dt_gal" onchange="changeCheck(this)"  readonly="readonly">
+									<select size="1" id="cerTypeDic" class="col-xs-9" name="cerTypeDic.id" aria-controls="dt_gal" onchange="changeCheck(this)" disabled>
 										<option value="">请选择...</option>
 										<#if user.cerTypeDic ??>
 											<#list cardtypeDicList as dic>
@@ -81,7 +81,7 @@
 									<span class="formTitle">证件号码<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="cerNum" name="cerNum" value="${(user.cerNum)!""}" readonly="readonly"/>
+									<input type="text" class="col-xs-9" id="cerNum" name="cerNum" value="${(user.cerNum)!""}"  disabled/>
 								</div>
 							</div>
 						</div>
@@ -92,7 +92,7 @@
 									<span class="formTitle">出生日期</span>
 								</div>
 								<div class="col-xs-6">
-									<input style="cursor:auto;background-color:#fff;" id="birthday" class="Wdate col-xs-9" name="birthday"  value="${(user.birthday)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{%d}',isShowClear:true,readOnly:true})"  readonly="readonly"/>
+									<input style="cursor:auto;background-color:#fff;" id="birthday" class="Wdate col-xs-9" name="birthday"  value="${(user.birthday)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{%d}',isShowClear:true,readOnly:true})"  disabled/>
 								</div>
 							</div>
 							<div class="col-xs-6">
@@ -100,7 +100,7 @@
 									<span class="formTitle">联系电话</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="phone" name="phone" value="${(user.phone)!""}" readonly="readonly"/>
+									<input type="text" class="col-xs-9" id="phone" name="phone" value="${(user.phone)!""}" disabled/>
 								</div>
 							</div>
 						</div>
@@ -111,7 +111,7 @@
 									<span class="formTitle">家庭住址</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="address" name="address" value="${(user.address)!""}" readonly="readonly"/>
+									<input type="text" class="col-xs-9" id="address" name="address" value="${(user.address)!""}"  disabled/>
 								</div>
 							</div>
 							<div class="col-xs-6">
@@ -119,7 +119,7 @@
 									<span class="formTitle">邮件</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="email" name="email" value="${(user.email)!""}"  readonly="readonly"/>
+									<input type="text" class="col-xs-9" id="email" name="email" value="${(user.email)!""}"  disabled/>
 								</div>
 							</div>
 						</div>	
@@ -130,7 +130,7 @@
 									<span class="formTitle">登录名<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="loginName" name="userLogin.loginName" value="${(user.userLogin.loginName)!""}"  readonly="readonly"/>
+									<input type="text" class="col-xs-9" id="loginName" name="userLogin.loginName" value="${(user.userLogin.loginName)!""}"  disabled/>
 								</div>
 							</div>
 							<div class="col-xs-6">
@@ -138,7 +138,7 @@
 									<span class="formTitle">密码<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="password" class="col-xs-9" id="password" name="userLogin.password" value="${(user.userLogin.password)!""}"  readonly="readonly"/>
+									<input type="password" class="col-xs-9" id="password" name="userLogin.password" value="${(user.userLogin.password)!""}"   disabled/>
 								</div>
 							</div>
 						</div>			
@@ -152,7 +152,7 @@
 									<span class="formTitle">状态</span>
 								</div>
 								<div class="col-xs-6">
-									<select size="1" id="statusDic" class="col-xs-9"  name="statusDic.id" aria-controls="dt_gal" readonly="readonly">
+									<select size="1" id="statusDic" class="col-xs-9"  name="statusDic.id" aria-controls="dt_gal" disabled>
 										<option value="">请选择...</option>
 										<#if user.statusDic ??>
 											<#list statusDicList as dic>
@@ -180,7 +180,7 @@
 									<span class="formTitle">备注</span>
 								</div>
 								<div class="col-xs-6">
-									<textarea name="comments" class="col-xs-12"  id="comments" clos="80" rows="5" readonly="readonly"> ${(user.comments)!""}</textarea>
+									<textarea name="comments" class="col-xs-12"  id="comments" clos="80" rows="5" disabled> ${(user.comments)!""}</textarea>
 								</div>
 							</div>
 						</div>

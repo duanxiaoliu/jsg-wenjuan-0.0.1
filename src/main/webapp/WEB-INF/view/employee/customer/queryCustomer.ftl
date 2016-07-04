@@ -104,7 +104,7 @@
 	}
 	//修改
 	function editCustomer(id){
-		$('#queryCustomer').attr('action','${contextPath}/employeeManage/customerManage/ope-update/updateCustomer.do?id='+id);
+		$('#queryCustomer').attr('action','${contextPath}/employeeManage/customerManage/ope-update/editCustomer.do?id='+id);
 		$('#queryCustomer').submit();
 	}
 	//删除

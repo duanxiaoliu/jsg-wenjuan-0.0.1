@@ -9,11 +9,7 @@
 	<div class="main_content">
 		<div>
 			<h4 class="pageTitle">
-				<#if customer.id ??>
-					修改客户信息
-				<#else>
-					新增客户信息
-				</#if>
+				查看客户信息
 			</h4>
 		</div>
 		<hr class="Divider"/>
@@ -28,7 +24,7 @@
 									<span class="formTitle">客户名称<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="name" name="name" value="${(customer.name)!""}"/>
+									<input type="text" class="col-xs-9" id="name" name="name" value="${(customer.name)!""}" disabled/>
 								</div>
 							</div>
 							<div class="col-xs-6">
@@ -36,7 +32,7 @@
 									<span class="formTitle">客户代码<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="code" name="code" value="${(customer.name)!""}"/>
+									<input type="text" class="col-xs-9" id="code" name="code" value="${(customer.name)!""}" disabled/>
 								</div>
 							</div>
 						</div>
@@ -47,7 +43,7 @@
 									<span class="formTitle">是否有补助<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<select size="1" id="isMeal" class="col-xs-9" name="isMeal.id" aria-controls="dt_gal" onchange="changeCheck(this)">
+									<select size="1" id="isMeal" class="col-xs-9" name="isMeal.id" aria-controls="dt_gal" onchange="changeCheck(this)" disabled>
 										<option value="">请选择...</option>
 										<#if customer.isMeal ??>
 											<#list dicListIsMeal as dic>
@@ -70,7 +66,7 @@
 									<span class="formTitle">加班费<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="overTimeMoney" name="overTimeMoney" value="${(customer.overTimeMoney)!""}"/>
+									<input type="text" class="col-xs-9" id="overTimeMoney" name="overTimeMoney" value="${(customer.overTimeMoney)!""}" disabled/>
 								</div>
 							</div>
 						</div>
@@ -82,7 +78,7 @@
 									<span class="formTitle">月工作天数<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="workDays" name="workDays" value="${(customer.workDays)!""}"/>
+									<input type="text" class="col-xs-9" id="workDays" name="workDays" value="${(customer.workDays)!""}"  disabled/>
 								</div>
 							</div>
 						</div>
@@ -94,7 +90,7 @@
 									<span class="formTitle">备注</span>
 								</div>
 								<div class="col-xs-6">
-									<textarea name="comments" class="col-xs-12"  id="comments" clos="80" rows="5"> ${(customer.comments)!""}</textarea>
+									<textarea name="comments" class="col-xs-12"  id="comments" clos="80" rows="5" disabled> ${(customer.comments)!""}</textarea>
 								</div>
 							</div>
 						</div>
@@ -106,8 +102,7 @@
 									
 								</div>
 								<div class="col-xs-6" style="margin-top:20px;">
-									<button type="button" class="btn btn-info" onclick="saveCustomer()">保存</button>
-									<button type="button" class="btn" onclick="goList()">取消</button>
+									<button type="button" class="btn" onclick="goList()">返回</button>
 								</div>
 							</div>
 						</div>
@@ -117,50 +112,6 @@
 	</div>
 </div>
 <script>
-
-//表单验证
-    $("#saveCustomer").validate({
-		rules:{
-			name:{ required:true,
-			remote:{
-				   		type:"POST",
-				   		url:"${contextPath}/employeeManage/customerManage/ope-query/isExistCustomerName.do",
-				   		data:{id:function(){return $("#id").val();},
-				   			  name:function(){return $("#name").val();}
-				   		}
-				   }
-		   },
-			"isMeal.id":{
-				required:true
-			},
-			code:{required:true,
-				 remote:{
-				   		type:"POST",
-				   		url:"${contextPath}/employeeManage/customerManage/ope-query/isExistCustomerCode.do",
-				   		data:{id:function(){return $("#id").val();},
-				   			  code:function(){return $("#code").val();}
-				   		}
-				   }
-			   },
-		   overTimeMoney:{ required:true
-		   },
-		   workDays:{
-		    required:true
-		   }
-		},
-		messages:{
-			name:{required:"客户名称不能为空"},
-			"isMeal.id":{required:"是否有补助不能为空"},
-			"code":{required:"客户不能为空"},
-			"overTimeMoney":{required:"加班费不能为空"}
-		}
-	});
-    
-	//保存
-	function saveCustomer(){
-		$("#saveCustomer").attr('action',"${contextPath}/employeeManage/customerManage/ope-add/saveCustomer.do");
-		$("#saveCustomer").submit();
-	}
 	//返回列表
 	function goList(){
     	window.location.href="${contextPath}/employeeManage/customerManage/ope-query/queryCustomer.do?flag=1";
