@@ -46,8 +46,8 @@
 
             <div name="menuDiv" id="collapseThree" class="panel-collapse collapse">
                 <ul class="nav nav-list menu-second">
-                    <li><a id="employeeManage" href="${contextPath}/employeeManage/customerManage/queryCustomer.do?menuPid='collapseThree'&menuId='employeeManage'&menutext=员工管理 \ 客户信息维护"><i class="icon-user"></i> 客户信息维护</a></li>
-                    <li><a href="#"><i class="icon-edit"></i> 员工信息维护</a></li>
+                    <li><a id="customerManage" href="${contextPath}/employeeManage/customerManage/queryCustomer.do?menuPid='collapseThree'&menuId='customerManage'&menutext=员工管理 \ 客户信息维护"><i class="icon-user"></i> 客户信息维护</a></li>
+                    <li><a id="employeeManage" href="${contextPath}/employeeManage/EmployeeManage/queryEmployee.do?menuPid='collapseThree'&menuId='employeeManage'&menutext=员工管理 \ 员工信息维护"><i class="icon-user"></i> 员工信息维护</a></li>
                     <li><a href="#"><i class="icon-trash"></i> 子选项3</a></li>
                     <li><a href="#"><i class="icon-list"></i> 子选项4</a></li>
                 </ul>
