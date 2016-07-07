@@ -267,6 +267,9 @@
     		}
     	});
     }
+    function goToList(){
+    	window.location.href="${contextPath}/dicManage/dicManage/ope-query/queryDicCategory.do?flag=1";
+    }
 </script>
 </body>
 </html>

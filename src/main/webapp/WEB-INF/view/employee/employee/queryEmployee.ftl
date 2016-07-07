@@ -32,7 +32,7 @@
 					<div class="row-fluid">
 						<div class="col-xs-6">
 							<span class="formTitle">所在部门</span>
-							<select size="1" id="department" class="col-xs-9" name="department.id" aria-controls="dt_gal" onchange="changeCheck(this)">
+							<select size="1" id="department" class="col-xs-5" name="department.id" aria-controls="dt_gal" onchange="changeCheck(this)">
 								<option value="">请选择...</option>
 								<#if employee.department ??>
 									<#list departmentDicList as dic>
@@ -51,7 +51,7 @@
 						</div>
 						<div class="col-xs-6">
 							<span class="formTitle">所在客户</span>
-							<select size="1" id="customer" class="col-xs-9" name="customer.id" aria-controls="dt_gal">
+							<select size="1" id="customer" class="col-xs-5 " name="customer.id" aria-controls="dt_gal">
 								<option value="">请选择...</option>
 								<#if employee.customer ??>
 									<#list customerList as dic>
@@ -97,6 +97,7 @@
 									<th>所在部门</th>
 									<th>所在客户</th>
 									<th>邮箱</th>
+									<th>是否在职</th>
 									<th>操作</th>
 								</tr>
 							</thead>
@@ -110,6 +111,7 @@
 											<td><#if employee.department ??>${(employee.department.name) !""}</#if></td>
 											<td><#if employee.customer ??>${(employee.customer.name)!""}</#if></td>
 											<td><#if employee.email ??>${(employee.email)!""}</#if></td>
+											<td><#if employee.isJob ??>${(employee.isJob.name)!""}</#if></td>
 											<td>
 												<a href="#" title="修改" onclick="editEmployee('${employee.id !""}')"><i class="icon-pencil"></i></a>
 												<a href="#" title="删除" onclick="delEmployee('${employee.id !""}')"><i class="icon-trash"></i></a>
