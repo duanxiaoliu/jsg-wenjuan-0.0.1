@@ -94,7 +94,7 @@
 						<div class="row-fluid">
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">邮箱<span class="f_waring">*</span></span>
+									<span class="formTitle">邮箱</span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" class="col-xs-9" id="email" name="email" value="${(employee.email)!""}"/>
@@ -140,11 +140,11 @@
 									<span class="formTitle">试用期是否全薪<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<select size="1" id="register" class="col-xs-9" name="register.id" aria-controls="dt_gal" onchange="changeCheck(this)">
+									<select size="1" id="probationState" class="col-xs-9" name="probationState.id" aria-controls="dt_gal" onchange="changeCheck(this)">
 										<option value="">请选择...</option>
-										<#if employee.register ??>
+										<#if employee.probationState ??>
 											<#list YNDicList as dic>
-												<#if dic.id == employee.register.id>
+												<#if dic.id == employee.probationState.id>
 													<option value="${dic.id}" selected="selected">${dic.name}</option>
 												<#else>
 													<option value="${dic.id}">${dic.name}</option>
@@ -237,7 +237,11 @@
 	</div>
 </div>
 <script>
-
+$(
+	function(){
+		addQuitTimeCheck();
+	}
+);
 //表单验证
     $("#saveEmployee").validate({
 		rules:{
@@ -260,6 +264,9 @@
 		   email:{
 		    email:true
 		   },
+		   "probationState.id":{
+		   	required:true,
+		   },
 		   salary:{
 		   	required:true,
 		   	number:true,
@@ -274,7 +281,11 @@
 		   },
 		   "isJob.id":{
 		   	required:true
+		   },
+		   quitTime:{
+		   	quitTimeVal:true
 		   }
+		   
 		},
 		messages:{
 			employeeName:{required:"员工名称不能为空"},
@@ -283,6 +294,7 @@
 			"customer.id":{required:"所在客户不能为空"},
 			"register.id":{required:"户口类型不能为空"},
 			email:{required:"请填写正确的邮箱"},
+			"probationState.id":{required:"试用期是否全薪不能为空"},
 			salary:{required:"基本工资不能为空"},
 			entryTime:{required:"入职时间不能为空"},
 			"isJob.id":{required:"是否在职不能为空"}
@@ -292,7 +304,7 @@
     function addQuitTimeCheck(){
     	var isJob = $("#isJob").find("option:selected").text();
     	if(isJob != null && isJob!="" && isJob=='否'){
-    		$("#isJob").attr('disabled','false');
+    		$("#quitTime").attr('disabled',false);
     		 jQuery.validator.addMethod("quitTimeVal", function(value, element) {
 			      var value = $('#quitTime').val();
 			      if(value=="" || value==null){  
@@ -302,12 +314,14 @@
 			      }  
 			  
 			  }, "离职时间不能为空!");
+    	}else{
+    		$("#quitTime").attr('disabled',true);
     	}
     }
 	//保存
 	function saveEmployee(){
-		$("#saveCustomer").attr('action',"${contextPath}/employeeManage/customerManage/ope-add/saveCustomer.do");
-		$("#saveCustomer").submit();
+		$("#saveEmployee").attr('action',"${contextPath}/employeeManage/customerManage/ope-add/saveCustomer.do");
+		$("#saveEmployee").submit();
 	}
 	//返回列表
 	function goList(){
