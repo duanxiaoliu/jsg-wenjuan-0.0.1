@@ -113,7 +113,6 @@
 											<td><#if employee.email ??>${(employee.email)!""}</#if></td>
 											<td><#if employee.isJob ??>${(employee.isJob.name)!""}</#if></td>
 											<td>
-												<a href="#" title="合算工资" onclick="editEmployeeSalary('${employee.id !""}')"><i class="icon-th-list"></i></a>
 												<a href="#" title="修改" onclick="editEmployee('${employee.id !""}')"><i class="icon-pencil"></i></a>
 												<a href="#" title="删除" onclick="delEmployee('${employee.id !""}')"><i class="icon-trash"></i></a>
 												<a href="#" title="查看" onclick="viewEmployee('${employee.id !""}')"><i class="icon-list-alt"></i></a>

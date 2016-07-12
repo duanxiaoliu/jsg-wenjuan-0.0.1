@@ -21,7 +21,7 @@
 						<div class="row-fluid">
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">客户名称<span class="f_waring">*</span></span>
+									<span class="formTitle">客户名称</span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" class="col-xs-9" id="name" name="name" value="${(customer.name)!""}" disabled/>
@@ -29,7 +29,7 @@
 							</div>
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">客户代码<span class="f_waring">*</span></span>
+									<span class="formTitle">客户代码</span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" class="col-xs-9" id="code" name="code" value="${(customer.name)!""}" disabled/>
@@ -40,7 +40,7 @@
 						<div class="row-fluid">
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">是否有补助<span class="f_waring">*</span></span>
+									<span class="formTitle">是否有补助</span>
 								</div>
 								<div class="col-xs-6">
 									<select size="1" id="isMeal" class="col-xs-9" name="isMeal.id" aria-controls="dt_gal" onchange="changeCheck(this)" disabled>
@@ -63,7 +63,7 @@
 							</div>
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">加班费<span class="f_waring">*</span></span>
+									<span class="formTitle">加班费</span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" class="col-xs-9" id="overTimeMoney" name="overTimeMoney" value="${(customer.overTimeMoney)!""}" disabled/>
@@ -75,7 +75,7 @@
 						<div class="row-fluid">
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">月工作天数<span class="f_waring">*</span></span>
+									<span class="formTitle">月工作天数</span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" class="col-xs-9" id="workDays" name="workDays" value="${(customer.workDays)!""}"  disabled/>
@@ -83,6 +83,68 @@
 							</div>
 						</div>
 					</div>
+					<#if customer.isMeal ?? && customer.isMeal.name == '是'>
+
+						<div class="col-xs-12">
+							<div class="row-fluid">
+								<div class="col-xs-6">
+									<div class="col-xs-3">
+										<span class="formTitle">饭费补助</span>
+									</div>
+									<div class="col-xs-6">
+										<input type="text" class="col-xs-9" id="food" name="food" value="${(allowance.food)!""}" disabled/>/天
+									</div>
+								</div>
+								<div class="col-xs-6">
+									<div class="col-xs-3">
+										<span class="formTitle">电脑补助</span>
+									</div>
+									<div class="col-xs-6">
+										<input type="text" class="col-xs-9" id="computer" name="computer" value="${(allowance.computer)!""}" disabled/>/天
+									</div>
+								</div>
+							</div>
+							
+							<div class="row-fluid">
+								<div class="col-xs-6">
+									<div class="col-xs-3">
+										<span class="formTitle">交通补助</span>
+									</div>
+									<div class="col-xs-6">
+										<input type="text" class="col-xs-9" id="traffic" name="traffic" value="${(allowance.traffic)!""}" disabled/>/天
+									</div>
+								</div>
+								<div class="col-xs-6">
+									<div class="col-xs-3">
+										<span class="formTitle">住房补助</span>
+									</div>
+									<div class="col-xs-6">
+										<input type="text" class="col-xs-9" id="housing" name="housing" value="${(allowance.housing)!""}" disabled/>/月
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="row-fluid">
+								<div class="col-xs-6">
+									<div class="col-xs-3">
+										<span class="formTitle">其它补助</span>
+									</div>
+									<div class="col-xs-6">
+										<input type="text" class="col-xs-9" id="otherDay" name="otherDay" value="${(allowance.otherDay)!""}" disabled/>/天
+									</div>
+								</div>
+								<div class="col-xs-6">
+									<div class="col-xs-3">
+										<span class="formTitle">其它补助</span>
+									</div>
+									<div class="col-xs-6">
+										<input type="text" class="col-xs-9" id="otherMouth" name="otherMouth" value="${(allowance.otherMouth)!""}" disabled/>/月
+									</div>
+								</div>
+							</div>
+						</div>
+					</#if>
 					<div class="col-xs-12">
 						<div class="row-fluid">
 							<div class="col-xs-6">

@@ -53,7 +53,7 @@
 									<th>客户名称</th>
 									<th>客户代码</th>
 									<th>加班费</th>
-									<th>是否有餐补</th>
+									<th>是否有补助</th>
 									<th>月平均工作日天数</th>
 									<th>操作</th>
 								</tr>
@@ -69,6 +69,9 @@
 											<td><#if customer.isMeal ??>${(customer.isMeal.name)!""}</#if></td>
 											<td><#if customer.workDays ??>${(customer.workDays)!""}</#if></td>
 											<td>
+											<#if customer.isMeal ?? && customer.isMeal.name == '是'>
+												<a href="#" title="设置补助标准" onclick="editAllowance('${customer.id !""}')"><i class="icon-th-list"></i></a>
+											</#if>
 												<a href="#" title="修改" onclick="editCustomer('${customer.id !""}')"><i class="icon-pencil"></i></a>
 												<a href="#" title="删除" onclick="delCustomer('${customer.id !""}')"><i class="icon-trash"></i></a>
 												<a href="#" title="查看" onclick="viewCustomer('${customer.id !""}')"><i class="icon-list-alt"></i></a>
@@ -129,7 +132,11 @@
 			}
 		});
 	}
-	
+	//设置客户补助标准
+	function editAllowance(id){
+		$('#queryCustomer').attr('action','${contextPath}/employeeManage/customerManage/ope-query/editAllowance.do?id='+id);
+		$('#queryCustomer').submit();
+	}
 </script>
 </body>
 </html>

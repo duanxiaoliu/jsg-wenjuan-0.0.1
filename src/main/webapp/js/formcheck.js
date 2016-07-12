@@ -9,6 +9,17 @@ jQuery.validator.addMethod("integerCheck", function(value,element)
 			}
 			return false;
 		}, "请输入有效整数!");
+//验证小数位数
+jQuery.validator.addMethod("decimals",function(value,element,d){
+	var a = value.indexOf('.')+1;
+	if(a==0){
+		a = value.length;
+	}
+	var b = value.length;
+	var c = b - a;
+	return this.optional(element) || c <= d;
+	//this.optional(element) 可以为空，但不为空时必须符合格式
+},"小数位数不能超过{0}位！");
 
 //验证电话号码，只能输入数字和中划线，长度不能超过30
 jQuery.validator.addMethod("phoneCheck", function(value,element)

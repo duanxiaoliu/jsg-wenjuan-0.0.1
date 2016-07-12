@@ -20,24 +20,24 @@
 		<div class="row-fluid">
 			<form action="${contextPath}/employeeManage/customerManage/ope-add/saveAllowance.do" id="saveAllowance" method="post">		
 				<input type="hidden" name="id" id="id" value="${(allowance.id)!""}"/>
-				<input type="hidden" name="customerId" id="customer.id" value="${(customer.id)!""}"/>		
+				<input type="hidden" name="customer.id" id="customerId" value="${(customer.id)!""}"/>		
 					<div class="col-xs-12">
 					
 						<div class="row-fluid">
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">饭费补助<span class="f_waring">*</span></span>
+									<span class="formTitle">饭费补助(/天)<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="food" name="food" value="${(allowance.food)!""}"/>/天
+									<input type="text" class="col-xs-9" id="food" name="food" value="${(allowance.food)!""}"/>
 								</div>
 							</div>
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">电脑补助<span class="f_waring">*</span></span>
+									<span class="formTitle">电脑补助(/天)<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="computer" name="computer" value="${(allowance.computer)!""}"/>/天
+									<input type="text" class="col-xs-9" id="computer" name="computer" value="${(allowance.computer)!""}"/>
 								</div>
 							</div>
 						</div>
@@ -45,18 +45,18 @@
 						<div class="row-fluid">
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">交通补助<span class="f_waring">*</span></span>
+									<span class="formTitle">交通补助(/天)<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="traffic" name="traffic" value="${(allowance.traffic)!""}"/>/天
+									<input type="text" class="col-xs-9" id="traffic" name="traffic" value="${(allowance.traffic)!""}"/>
 								</div>
 							</div>
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">住房补助<span class="f_waring">*</span></span>
+									<span class="formTitle">住房补助(/月)<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="housing" name="housing" value="${(allowance.housing)!""}"/>/月
+									<input type="text" class="col-xs-9" id="housing" name="housing" value="${(allowance.housing)!""}"/>
 								</div>
 							</div>
 						</div>
@@ -65,18 +65,18 @@
 						<div class="row-fluid">
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">其它补助<span class="f_waring">*</span></span>
+									<span class="formTitle">其它补助(/天)<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="otherDay" name="otherDay" value="${(allowance.otherDay)!""}"/>/天
+									<input type="text" class="col-xs-9" id="otherDay" name="otherDay" value="${(allowance.otherDay)!""}"/>
 								</div>
 							</div>
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">其它补助<span class="f_waring">*</span></span>
+									<span class="formTitle">其它补助(/月)<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="otherMouth" name="otherMouth" value="${(allowance.otherMouth)!""}"/>/月
+									<input type="text" class="col-xs-9" id="otherMouth" name="otherMouth" value="${(allowance.otherMouth)!""}"/>
 								</div>
 							</div>
 						</div>
@@ -102,22 +102,46 @@
 <script>
 
 //表单验证
-    $("#saveCustomer").validate({
+    $("#saveAllowance").validate({
 		rules:{
 			food:{ required:true,
+					number:true,
+					min:0,
+					maxlength:32,
+					digits:true
 		   },
 			computer:{
-				required:true
+				required:true,
+				number:true,
+				min:0,
+				maxlength:32,
+				digits:true
 			},
 			traffic:{required:true,
+					number:true,
+					min:0,
+					maxlength:32,
+					digits:true
 			   },
-		   housing:{ required:true
+		   housing:{ required:true,
+		  			 number:true,
+					min:0,
+					maxlength:32,
+					digits:true
 		   },
 		   otherDay:{
-		    required:true
+		    required:true,
+		    number:true,
+			min:0,
+			maxlength:32,
+			digits:true
 		   },
 		   otherMouth:{
-		    required:true
+		    required:true,
+		    number:true,
+			min:0,
+			maxlength:32,
+			digits:true
 		   }
 		},
 		messages:{

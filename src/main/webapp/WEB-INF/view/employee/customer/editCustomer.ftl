@@ -47,7 +47,7 @@
 									<span class="formTitle">是否有补助<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<select size="1" id="isMeal" class="col-xs-9" name="isMeal.id" aria-controls="dt_gal" onchange="changeCheck(this)">
+									<select size="1" id="isMeal" class="col-xs-9" name="isMeal.id" aria-controls="dt_gal">
 										<option value="">请选择...</option>
 										<#if customer.isMeal ??>
 											<#list dicListIsMeal as dic>
