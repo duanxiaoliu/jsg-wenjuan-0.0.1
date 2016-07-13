@@ -320,7 +320,7 @@ $(
     }
 	//保存
 	function saveEmployee(){
-		$("#saveEmployee").attr('action',"${contextPath}/employeeManage/customerManage/ope-add/saveCustomer.do");
+		$("#saveEmployee").attr('action',"${contextPath}/employeeManage/employeeManage/ope-save/saveEmployee.do");
 		$("#saveEmployee").submit();
 	}
 	//返回列表

@@ -174,7 +174,11 @@
 			}
 		});
 	}
-	
+	//合算员工工资
+	function editEmployeeSalary(id){
+		$('#queryEmployee').attr('action','${contextPath}/employeeManage/employeeSalary/ope-query/queryEmployeeSalary.do?employee.id='+id);
+		$('#queryEmployee').submit();
+	}
 </script>
 </body>
 </html>

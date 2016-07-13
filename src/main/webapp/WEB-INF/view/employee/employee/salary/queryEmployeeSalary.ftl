@@ -9,64 +9,19 @@
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="${contextPath}/css/style.css"/>
     <link rel="stylesheet" href="${contextPath}/css/font-awesome.min.css"/>
-
+	<link rel="stylesheet" href="${contextPath}/js/My97DatePicker/skin/WdatePicker.css"/>
+    <script src="${contextPath}/js/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 <div id="contentwrapper">
 	<div class="main_content">
 		<div class="row-fluid">
-			<form id="queryEmployee" action="${contextPath}/employeeManage/employeeManage/ope-query/queryEmployee.do" method="post">				
+			<form id="queryEmployeeSalary" action="${contextPath}/employeeManage/employeeSalary/ope-query/queryEmployeeSalary.do" method="post">				
 				<div class="col-xs-12">
 					<div class="row-fluid">
 						<div class="col-xs-6">
-							<span class="formTitle">员工姓名</span>
-							<input type="text" class="col-xs-5" id="employeeName" name="employeeName" value="${employee.employeeName!""}"/>
-						</div>
-						<div class="col-xs-6">
-							<span class="formTitle">员工代码</span>
-							<input type="text" class="col-xs-5" id="employeeCode" name="employeeCode" value="${employee.employeeCode!""}"/>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12">
-					<div class="row-fluid">
-						<div class="col-xs-6">
-							<span class="formTitle">所在部门</span>
-							<select size="1" id="department" class="col-xs-5" name="department.id" aria-controls="dt_gal" onchange="changeCheck(this)">
-								<option value="">请选择...</option>
-								<#if employee.department ??>
-									<#list departmentDicList as dic>
-										<#if dic.id == employee.department.id>
-											<option value="${dic.id}" selected="selected">${dic.name}</option>
-										<#else>
-											<option value="${dic.id}">${dic.name}</option>
-										</#if>	
-									</#list>
-								<#else>
-									<#list departmentDicList as dic>
-										<option value="${dic.id}">${dic.name}</option>
-									</#list>
-								</#if>
-							</select>
-						</div>
-						<div class="col-xs-6">
-							<span class="formTitle">所在客户</span>
-							<select size="1" id="customer" class="col-xs-5 " name="customer.id" aria-controls="dt_gal">
-								<option value="">请选择...</option>
-								<#if employee.customer ??>
-									<#list customerList as dic>
-										<#if dic.id == employee.customer.id>
-											<option value="${dic.id}" selected="selected">${dic.name}</option>
-										<#else>
-											<option value="${dic.id}">${dic.name}</option>
-										</#if>	
-									</#list>
-								<#else>
-									<#list customerList as dic>
-										<option value="${dic.id}">${dic.name}</option>
-									</#list>
-								</#if>
-							</select>
+							<span class="formTitle">薪资年月</span>
+							<input style="cursor:auto;background-color:#fff;height:30px;" id="salaryDate" class="Wdate col-xs-5" name="salaryDate"  value="${(salaryResult.salaryDate)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM',minDate:'%y-%M',isShowClear:true,readOnly:true})"/>
 						</div>
 					</div>
 				</div>
@@ -82,7 +37,7 @@
 							<div class="col-xs-10">
 								<div class="dt_actions">
 									<div class="row-fluid">
-										<button class="btn btn-info" type="button" onclick="addEmployee()">新增</button>
+										<button class="btn btn-info" type="button" onclick="addEmployeeSalary()">新增</button>
 									</div>
 								</div>
 							</div>
@@ -91,38 +46,39 @@
 						<table class="table table-bordered table-striped tablecut" id="smpl_tbl">
 							<thead>
 								<tr>
-									<th>序号</th>
-									<th>员工名称</th>
-									<th>员工代码</th>
-									<th>所在部门</th>
-									<th>所在客户</th>
-									<th>邮箱</th>
-									<th>是否在职</th>
+									<th width="10%">序号</th>
+									<th>薪资年月</th>
+									<th>缺勤扣款</th>
+									<th>出勤工资</th>
+									
+									<th>工资及补贴总额</th>
+									<th>代扣款</th>
+									<th>实发工资</th>
 									<th>操作</th>
 								</tr>
 							</thead>
 							<tbody>
 								<#if page ??>
-									<#list page.result as employee>
+									<#list page.result as salary>
 										<tr>
-											<td>${employee_index+1}</td>
-											<td><#if employee.employeeName ??>${employee.employeeName !""}</#if></td>
-											<td><#if employee.employeeCode ??>${(employee.employeeCode)!""}</#if></td>
-											<td><#if employee.department ??>${(employee.department.name) !""}</#if></td>
-											<td><#if employee.customer ??>${(employee.customer.name)!""}</#if></td>
-											<td><#if employee.email ??>${(employee.email)!""}</#if></td>
-											<td><#if employee.isJob ??>${(employee.isJob.name)!""}</#if></td>
+											<td>${salary_index+1}</td>
+											<td>${salary.salaryDate !""}</td>
+											<td>${(salary.absenceMoney)!""}</td>
+											<td>${(salary.attendanceMoney) !""}</td>
+											<td>${(salary.sum)!""}</td>
+											<td>${(salary.other)!""}</td>
+											<td>${(salary.finnalMoney)!""}</td>
 											<td>
-												<a href="#" title="修改" onclick="editEmployee('${employee.id !""}')"><i class="icon-pencil"></i></a>
-												<a href="#" title="删除" onclick="delEmployee('${employee.id !""}')"><i class="icon-trash"></i></a>
-												<a href="#" title="查看" onclick="viewEmployee('${employee.id !""}')"><i class="icon-list-alt"></i></a>
+												<a href="#" title="修改" onclick="editEmployeeSalary('${(salary.employee.id) !""}','${salary.salaryDate !""}')"><i class="icon-pencil"></i></a>
+												<a href="#" title="删除" onclick="delEmployeeSalary('${(salary.employee.id) !""}','${salary.salaryDate !""}')"><i class="icon-trash"></i></a>
+												<a href="#" title="查看" onclick="viewEmployeeSalary('${(salary.employee.id) !""}','${salary.salaryDate !""}')"><i class="icon-list-alt"></i></a>
 											</td>
 										</tr>
 									</#list>
 								</#if>
 							</tbody>
 						</table>
-						<#include "../../page/pageTag.ftl">
+						<#include "../../../page/pageTag.ftl">
 					</div>
  				</div>
 			</div>
@@ -132,30 +88,30 @@
 </div>
 <script>
 	//查询
-	function queryEmployee(){
-		$('#queryEmployee').attr('action','${contextPath}/employeeManage/EmployeeManage/ope-query/queryEmployee.do');
-		$('#queryEmployee').submit();
+	function queryEmployeeSalary(){
+		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-query/queryEmployeeSalary.do');
+		$('#queryEmployeeSalary').submit();
 	}
 	//新增
-	function addEmployee(){
-		$('#queryEmployee').attr('action','${contextPath}/employeeManage/employeeManage/ope-add/addEmployee.do');
-		$('#queryEmployee').submit();
+	function addEmployeeSalary(){
+		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-add/addEmployeeSalary.do');
+		$('#queryEmployeeSalary').submit();
 	}
 	//查看
-	function viewEmployee(id){
-		$('#queryEmployee').attr('action','${contextPath}/employeeManage/employeeManage/ope-view/viewEmployee.do?id='+id);
-		$('#queryEmployee').submit();
+	function viewEmployeeSalary(id,salaryDate){
+		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-view/viewEmployeeSalary.do?id='+id+'&salaryDate='+salaryDate);
+		$('#queryEmployeeSalary').submit();
 	}
 	//修改
-	function editEmployee(id){
-		$('#queryEmployee').attr('action','${contextPath}/employeeManage/employeeManage/ope-update/editEmployee.do?id='+id);
-		$('#queryEmployee').submit();
+	function editEmployeeSalary(id,salaryDate){
+		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-update/editEmployeeSalary.do?id='+id+'&salaryDate='+salaryDate);
+		$('#queryEmployeeSalary').submit();
 	}
 	//删除
-	function delEmployee(id){
+	function delEmployeeSalary(id,salaryDate){
 		basejs.confirm("注意，确定要删除吗？",function(r){
 			if(r){
-				var url = "${contextPath}/employeeManage/employeeManage/ope-del/delEmployee/"+id+".do";
+				var url = "${contextPath}/employeeManage/employeeSalary/ope-del/delEmployeeSalary/"+id+"/"+salaryDate+".do";
 				$.ajax({
 					url:url,
 					async:false,
@@ -164,7 +120,7 @@
 					dataType:"text",
 					success:function(data){
 						if(data="success"){
-							queryEmployee();
+							queryEmployeeSalary();
 						}else{
 							alert("无法完成删除操作！");
 						}
