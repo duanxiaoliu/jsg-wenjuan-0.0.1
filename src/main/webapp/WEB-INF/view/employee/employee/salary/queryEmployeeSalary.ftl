@@ -17,6 +17,7 @@
 	<div class="main_content">
 		<div class="row-fluid">
 			<form id="queryEmployeeSalary" action="${contextPath}/employeeManage/employeeSalary/ope-query/queryEmployeeSalary.do" method="post">				
+				<input type="hidden" id="employeeId" name="employee.id" value="${(employee.id)!""}"/>
 				<div class="col-xs-12">
 					<div class="row-fluid">
 						<div class="col-xs-6">
@@ -37,7 +38,7 @@
 							<div class="col-xs-10">
 								<div class="dt_actions">
 									<div class="row-fluid">
-										<button class="btn btn-info" type="button" onclick="addEmployeeSalary()">新增</button>
+										<button class="btn btn-info" type="button" onclick="addEmployeeSalary('${(employee.id)!""}')">新增</button>
 									</div>
 								</div>
 							</div>
@@ -93,8 +94,8 @@
 		$('#queryEmployeeSalary').submit();
 	}
 	//新增
-	function addEmployeeSalary(){
-		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-add/addEmployeeSalary.do');
+	function addEmployeeSalary(employeeId){
+		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-add/addEmployeeSalary.do?employeeId='+employeeId);
 		$('#queryEmployeeSalary').submit();
 	}
 	//查看
@@ -103,8 +104,8 @@
 		$('#queryEmployeeSalary').submit();
 	}
 	//修改
-	function editEmployeeSalary(id,salaryDate){
-		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-update/editEmployeeSalary.do?id='+id+'&salaryDate='+salaryDate);
+	function editEmployeeSalary(employeeId,salaryDate){
+		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-update/editEmployeeSalary.do?employeeId='+employeeId+'&salaryDate='+salaryDate);
 		$('#queryEmployeeSalary').submit();
 	}
 	//删除

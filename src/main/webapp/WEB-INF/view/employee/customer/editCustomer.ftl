@@ -67,7 +67,7 @@
 							</div>
 							<div class="col-xs-6">
 								<div class="col-xs-3">
-									<span class="formTitle">加班费<span class="f_waring">*</span></span>
+									<span class="formTitle">加班费/小时<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" class="col-xs-9" id="overTimeMoney" name="overTimeMoney" value="${(customer.overTimeMoney)!""}"/>
