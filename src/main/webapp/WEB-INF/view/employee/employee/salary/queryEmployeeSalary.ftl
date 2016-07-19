@@ -99,8 +99,8 @@
 		$('#queryEmployeeSalary').submit();
 	}
 	//查看
-	function viewEmployeeSalary(id,salaryDate){
-		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-view/viewEmployeeSalary.do?id='+id+'&salaryDate='+salaryDate);
+	function viewEmployeeSalary(employeeId,salaryDate){
+		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-view/viewEmployeeSalary.do?employeeId='+employeeId+'&salaryDate='+salaryDate);
 		$('#queryEmployeeSalary').submit();
 	}
 	//修改
@@ -109,10 +109,10 @@
 		$('#queryEmployeeSalary').submit();
 	}
 	//删除
-	function delEmployeeSalary(id,salaryDate){
+	function delEmployeeSalary(employeeId,salaryDate){
 		basejs.confirm("注意，确定要删除吗？",function(r){
 			if(r){
-				var url = "${contextPath}/employeeManage/employeeSalary/ope-del/delEmployeeSalary/"+id+"/"+salaryDate+".do";
+				var url = "${contextPath}/employeeManage/employeeSalary/ope-del/delEmployeeSalary/"+employeeId+"/"+salaryDate+".do";
 				$.ajax({
 					url:url,
 					async:false,
