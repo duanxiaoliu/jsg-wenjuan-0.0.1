@@ -307,7 +307,7 @@
 						<div class="row-fluid">
 							<div class="col-xs-4">
 								<div class="col-xs-5">
-									<span class="formTitle">转正病假天数</span>
+									<span class="formTitle">转正病假小时数</span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" class="col-xs-9" id="sickLeave" name="sickLeave" value="${(employeeSalary.sickLeave)!""}"/>
@@ -315,7 +315,7 @@
 							</div>
 							<div class="col-xs-4">
 								<div class="col-xs-5">
-									<span class="formTitle">试用期病假天数</span>
+									<span class="formTitle">试用期病假小时数</span>
 								</div>
 								<div class="col-xs-6">
 									<input type="text" class="col-xs-9" id="trySickLeave" name="trySickLeave" value="${(employeeSalary.trySickLeave)!""}"/>
