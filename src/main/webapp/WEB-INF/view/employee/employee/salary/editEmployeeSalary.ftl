@@ -258,7 +258,12 @@
 									<span class="formTitle">转正事假小时数</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="personalLeave" name="personalLeave" value="${(employeeSalary.personalLeave)!""}"/>
+									<input type="text" class="col-xs-9" id="personalLeave" name="personalLeave" value="${(employeeSalary.personalLeave)!""}" onblur="toDay('personalLeave','personalLeaveDay')"/>
+									<lable id="personalLeaveDay">
+										<#if employeeSalary.personalLeave ??>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${employeeSalary.personalLeave / 8}
+										</#if>
+									</lable>天
 								</div>
 							</div>
 							<div class="col-xs-4">
@@ -266,7 +271,12 @@
 									<span class="formTitle">试用期事假小时数</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="tryPersonalLeave" name="tryPersonalLeave" value="${(employeeSalary.tryPersonalLeave)!""}"/>
+									<input type="text" class="col-xs-9" id="tryPersonalLeave" name="tryPersonalLeave" value="${(employeeSalary.tryPersonalLeave)!""}" onblur="toDay('tryPersonalLeave','tryPersonalLeaveDay')"/>
+									<lable id="tryPersonalLeaveDay">
+										<#if employeeSalary.tryPersonalLeave ??>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${employeeSalary.tryPersonalLeave / 8}
+										</#if>
+									</lable>天
 								</div>
 							</div>
 						</div>
@@ -290,7 +300,7 @@
 									<span class="formTitle">年假天数</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="annualLeave" name="annualLeave" value="${(employeeSalary.annualLeave)!""}"/>
+									<input type="text" class="col-xs-9" id="annualLeave" name="annualLeave" value="${(employeeSalary.annualLeave)!""}"  onblur="toZero('annualLeave')" />
 								</div>
 							</div>
 							<div class="col-xs-8">
@@ -310,7 +320,12 @@
 									<span class="formTitle">转正病假小时数</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="sickLeave" name="sickLeave" value="${(employeeSalary.sickLeave)!""}"/>
+									<input type="text" class="col-xs-9" id="sickLeave" name="sickLeave" value="${(employeeSalary.sickLeave)!""}"  onblur="toDay('sickLeave','sickLeaveDay')"/>
+									<lable id="sickLeaveDay">
+										<#if employeeSalary.sickLeave ??>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${employeeSalary.sickLeave / 8}
+										</#if>
+									</lable>天
 								</div>
 							</div>
 							<div class="col-xs-4">
@@ -318,7 +333,12 @@
 									<span class="formTitle">试用期病假小时数</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="trySickLeave" name="trySickLeave" value="${(employeeSalary.trySickLeave)!""}"/>
+									<input type="text" class="col-xs-9" id="trySickLeave" name="trySickLeave" value="${(employeeSalary.trySickLeave)!""}" onblur="toDay('trySickLeave','trySickLeaveDay')"/>
+									<lable id="trySickLeaveDay">
+										<#if employeeSalary.trySickLeave ??>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${employeeSalary.trySickLeave / 8}
+										</#if>
+									</lable>天
 								</div>
 							</div>
 
@@ -343,7 +363,7 @@
 									<span class="formTitle">婚假天数</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="marriageLeave" name="marriageLeave" value="${(employeeSalary.marriageLeave)!""}"/>
+									<input type="text" class="col-xs-9" id="marriageLeave" name="marriageLeave" value="${(employeeSalary.marriageLeave)!""}" onblur="toZero('marriageLeave')" />
 								</div>
 							</div>
 							<div class="col-xs-8">
@@ -363,7 +383,7 @@
 									<span class="formTitle">产假天数</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="maternityLeave" name="maternityLeave" value="${(employeeSalary.maternityLeave)!""}"/>
+									<input type="text" class="col-xs-9" id="maternityLeave" name="maternityLeave" value="${(employeeSalary.maternityLeave)!""}" onblur="toZero('maternityLeave')" />
 								</div>
 							</div>
 							<div class="col-xs-8">
@@ -383,7 +403,7 @@
 									<span class="formTitle">丧假天数</span>
 								</div>
 								<div class="col-xs-6">
-									<input type="text" class="col-xs-9" id="funeralLeave" name="funeralLeave" value="${(employeeSalary.funeralLeave)!""}"/>
+									<input type="text" class="col-xs-9" id="funeralLeave" name="funeralLeave" value="${(employeeSalary.funeralLeave)!""}" onblur="toZero('funeralLeave')" />
 								</div>
 							</div>
 							<div class="col-xs-8">
@@ -397,6 +417,9 @@
 						</div>
 					</div>	
 					<div class="col-xs-12">	
+						<div class="row-fluid">
+							<button id="commentBtn" type="button" class="btn btn-info" onclick="addComputeSalary()">计算机并保存</button>
+						</div>
 						<hr class="Divider"/>	
 					</div>
 					<div class="col-xs-12">
@@ -769,6 +792,79 @@
 			}
 		});
 	});
+	//小时转算天数
+	function toDay(valueId,textId){
+		var chour = $('#'+valueId).val();
+		if(chour==""){
+			$("#"+valueId).val(0);
+			$('#'+textId).text("0");
+		}else{
+			var cday = parseFloat(chour)/8;
+			$('#'+textId).text(cday);
+		}
+		
+	}
+	//清零
+	function toZero(inputId){
+		var val = $("#"+inputId).val();
+		if(val==""){
+			$("#"+inputId).val(0);
+		}
+	}
+	//计算薪资
+	function addComputeSalary(){
+		if($('#saveEmployeeSalary').valid()){
+			var url = "${rc.contextPath}/employeeManage/employeeSalary/ope-add/saveEmployeeSalary.do";
+			$.ajax({
+			    url:url,
+			    async: false,
+			    cache: false,
+			    dataType: "json",
+			    type:"post",
+			    data:$('#saveEmployeeSalary').serialize(),
+			    success:function(data){//设置页面计算结果显示
+			    	//缺勤天数
+			    	$('#RabsenceDay').text(data.absenceDay);
+			    	//缺勤扣款
+			    	$('#RabsenceMoney').text(data.absenceMoney);
+			    	//加班费及补助
+			    	$('#RoverTimeMoney').text(data.overTimeMoney);
+			    	//出勤工资
+			    	$('#RattendanceMoney').text(data.attendanceMoney);
+			    	//转正工资调整
+			    	$('#Rpromotion').text(data.promotion);
+			    	//奖金
+			    	$('#Rreward').text(data.reward);
+			    	//岗位津贴
+			    	$('#Rallowance').text(data.allowance);
+			    	//餐补
+			    	$('#RmealSupplement').text(data.mealSupplement);
+			    	//电脑补助
+			    	$('#RcomputerSupplement').text(data.computerSupplement);
+			    	//上月调整
+			    	$('#Radjustment').text(data.adjustment);
+			    	//离职补偿金
+			    	$('#Rcompensate').text(data.compensate);
+			    	//工资及补偿总额
+			    	$('#Rsum').text(data.sum);
+			    	//社保
+			    	$('#RsocialSecurity').text(data.socialSecurity);
+			    	//公积金
+			    	$('#RfundMoney').text(data.fundMoney);
+			    	//罚款
+			    	$('#Rpunish').text(data.punish);
+			    	//代扣款
+			    	$('#Rother').text(data.other);
+			    	//个税
+			    	$('#Rtax').text(data.tax);
+			    	//实发工资
+			    	$('#RfinnalMoney').text(data.finnalMoney);
+			    }
+				
+			});
+		}
+	}
+	
 	//返回
 	function goList(){
 		window.location.href="${contextPath}/employeeManage/employeeSalary/ope-query/queryEmployeeSalary.do?flag=1";

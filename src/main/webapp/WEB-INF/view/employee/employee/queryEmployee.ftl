@@ -83,6 +83,7 @@
 								<div class="dt_actions">
 									<div class="row-fluid">
 										<button class="btn btn-info" type="button" onclick="addEmployee()">新增</button>
+										<button class="btn btn-info" type="button" onclick="exportEmployeeSalaryMouth()">导出单个月份员工薪资信息</button>
 									</div>
 								</div>
 							</div>

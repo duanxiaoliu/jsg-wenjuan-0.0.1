@@ -39,6 +39,7 @@
 								<div class="dt_actions">
 									<div class="row-fluid">
 										<button class="btn btn-info" type="button" onclick="addEmployeeSalary('${(employee.id)!""}')">新增</button>
+										<button class="btn btn-info" type="button" onclick="exportEmployeeSalary('${(employee.id)!""}')">导出</button>
 									</div>
 								</div>
 							</div>
