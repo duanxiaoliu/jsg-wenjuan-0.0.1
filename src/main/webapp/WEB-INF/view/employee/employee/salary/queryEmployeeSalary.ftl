@@ -17,7 +17,7 @@
 	<div class="main_content">
 		<div class="row-fluid">
 			<form id="queryEmployeeSalary" action="${contextPath}/employeeManage/employeeSalary/ope-query/queryEmployeeSalary.do" method="post">				
-				<input type="hidden" id="employeeId" name="employee.id" value="${(employee.id)!""}"/>
+				<input type="hidden" id="employeeId" name="employee.id" value="${(salaryResult.employee.id)!""}"/>
 				<div class="col-xs-12">
 					<div class="row-fluid">
 						<div class="col-xs-6">
@@ -38,8 +38,8 @@
 							<div class="col-xs-10">
 								<div class="dt_actions">
 									<div class="row-fluid">
-										<button class="btn btn-info" type="button" onclick="addEmployeeSalary('${(employee.id)!""}')">新增</button>
-										<button class="btn btn-info" type="button" onclick="exportEmployeeSalary('${(employee.id)!""}')">导出</button>
+										<button class="btn btn-info" type="button" onclick="addEmployeeSalary('${(salaryResult.employee.id)!""}')">新增</button>
+										<button class="btn btn-info" type="button" onclick="exportEmployeeSalary('${(salaryResult.employee.id)!""}')">导出</button>
 									</div>
 								</div>
 							</div>

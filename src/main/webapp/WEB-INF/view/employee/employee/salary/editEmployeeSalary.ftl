@@ -28,7 +28,7 @@
 									<span class="formTitle">薪资年月<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<input style="cursor:auto;background-color:#fff;height:27px;" id="salaryDate" class="Wdate col-xs-9" name="salaryDate"  value="${(employeeSalary.salaryDate)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{%d}',isShowClear:true,readOnly:true})"/>
+									<input style="cursor:auto;background-color:#fff;height:27px;" id="salaryDate" class="Wdate col-xs-9" name="salaryDate"  value="${(employeeSalary.salaryDate)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM',minDate:'%y-%M-{%d}',isShowClear:true,readOnly:true})"/>
 								</div>
 							</div>
 							<div class="col-xs-4">
@@ -72,7 +72,7 @@
 									<span class="formTitle">奖金时间</span>
 								</div>
 								<div class="col-xs-6">
-									<input style="cursor:auto;background-color:#fff;height:27px;" id="rewardTime" class="Wdate col-xs-9" name="rewardTime"  value="${(employeeSalary.rewardTime)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{%d}',isShowClear:true,readOnly:true})"/>
+									<input style="cursor:auto;background-color:#fff;height:27px;" id="rewardTime" class="Wdate col-xs-9" name="rewardTime"  value="${(employeeSalary.rewardTime)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM',minDate:'%y-%M-{%d}',isShowClear:true,readOnly:true})"/>
 								</div>
 							</div>
 						</div>
@@ -115,21 +115,21 @@
 									<#if employeeSalary.isFullTimeDic ?? >
 										<#list YNListDic as dic>
 											<#if dic.id==employeeSalary.isFullTimeDic.id >
-												<input type="radio" id="isFullTime_${dic_index}" name="isFullTimeDic.id"  value='${dic.id}' checked/>
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="radio" id="isFullTime_${dic_index}" name="isFullTimeDic.id"  value='${dic.id}' checked />
+												${dic.name}
 											<#else>
-												<input type="radio" id="isFullTime_${dic_index}" name="isFullTimeDic.id"  value='${dic.id}' />
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="radio" id="isFullTime_${dic_index}" name="isFullTimeDic.id"  value='${dic.id}'  style="margin-left:15px;"/>
+												${dic.name}
 											</#if>
 										</#list>
 									<#else>
 										<#list YNListDic as dic>
 											<#if dic.name=='是'>
 												<input type="radio" id="isFullTime_${dic_index}" name="isFullTimeDic.id"  value='${dic.id}' checked/>
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												${dic.name}
 											<#else>
-												<input type="radio" id="isFullTime_${dic_index}" name="isFullTimeDic.id"  value='${dic.id}' />
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="radio" id="isFullTime_${dic_index}" name="isFullTimeDic.id"  value='${dic.id}' style="margin-left:15px;"/>
+												${dic.name}
 											</#if>
 											
 										</#list>
@@ -165,20 +165,20 @@
 										<#list YNListDic as dic>
 											<#if dic.id==employeeSalary.isFixedDic.id >
 												<input type="radio" id="isFixed_${dic_index}" name="isFixedDic.id"  value='${dic.id}' checked/>
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												${dic.name}
 											<#else>
-												<input type="radio" id="isFixed_${dic_index}" name="isFixedDic.id"  value='${dic.id}' />
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="radio" id="isFixed_${dic_index}" name="isFixedDic.id"  value='${dic.id}'  style="margin-left:15px;"/>
+												${dic.name}
 											</#if>
 										</#list>
 									<#else>
 										<#list YNListDic as dic>
 											<#if dic.name='是'>
 												<input type="radio" id="isFixed_${dic_index}" name="isFixedDic.id"  value='${dic.id}' checked/>
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												${dic.name}
 											<#else>
-												<input type="radio" id="isFixed_${dic_index}" name="isFixedDic.id"  value='${dic.id}' />
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="radio" id="isFixed_${dic_index}" name="isFixedDic.id"  value='${dic.id}' style="margin-left:15px;"/>
+												${dic.name}
 											</#if>
 										</#list>
 									</#if>
@@ -193,20 +193,20 @@
 										<#list YNListDic as dic>
 											<#if dic.id==employeeSalary.isSelfDic.id >
 												<input type="radio" id="isSelf_${dic_index}" name="isSelfDic.id"  value='${dic.id}' checked/>
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												${dic.name}
 											<#else>
-												<input type="radio" id="isSelf_${dic_index}" name="isSelfDic.id"  value='${dic.id}' />
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="radio" id="isSelf_${dic_index}" name="isSelfDic.id"  value='${dic.id}' style="margin-left:15px;" />
+												${dic.name}
 											</#if>
 										</#list>
 									<#else>
 										<#list YNListDic as dic>
 											<#if dic.name=='是'>
 												<input type="radio" id="isSelf_${dic_index}" name="isSelfDic.id"  value='${dic.id}' checked/>
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												${dic.name}
 											<#else>
-												<input type="radio" id="isSelf_${dic_index}" name="isSelfDic.id"  value='${dic.id}' />
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="radio" id="isSelf_${dic_index}" name="isSelfDic.id"  value='${dic.id}'  style="margin-left:15px;"/>
+												${dic.name}
 											</#if>
 										</#list>
 									</#if>
@@ -233,20 +233,20 @@
 										<#list YNListDic as dic>
 											<#if dic.id==employeeSalary.isComputerDic.id >
 												<input type="radio" id="isComputer_${dic_index}" name="isComputerDic.id"  value='${dic.id}' checked/>
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												${dic.name}
 											<#else>
-												<input type="radio" id="isComputer_${dic_index}" name="isComputerDic.id"  value='${dic.id}' />
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="radio" id="isComputer_${dic_index}" name="isComputerDic.id"  value='${dic.id}' style="margin-left:15px;" />
+												${dic.name}
 											</#if>
 										</#list>
 									<#else>
 										<#list YNListDic as dic>
 											<#if dic.name=='是'>
 												<input type="radio" id="isComputer_${dic_index}" name="isComputerDic.id"  value='${dic.id}' checked/>
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												${dic.name}
 											<#else>
-												<input type="radio" id="isComputer_${dic_index}" name="isComputerDic.id"  value='${dic.id}' />
-												${dic.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<input type="radio" id="isComputer_${dic_index}" name="isComputerDic.id"  value='${dic.id}' style="margin-left:15px;" />
+												${dic.name}
 											</#if>
 											
 										</#list>
@@ -261,7 +261,7 @@
 									<input type="text" class="col-xs-9" id="personalLeave" name="personalLeave" value="${(employeeSalary.personalLeave)!""}" onblur="toDay('personalLeave','personalLeaveDay')"/>
 									<lable id="personalLeaveDay">
 										<#if employeeSalary.personalLeave ??>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${employeeSalary.personalLeave / 8}
+											${employeeSalary.personalLeave / 8}
 										</#if>
 									</lable>天
 								</div>
@@ -274,7 +274,7 @@
 									<input type="text" class="col-xs-9" id="tryPersonalLeave" name="tryPersonalLeave" value="${(employeeSalary.tryPersonalLeave)!""}" onblur="toDay('tryPersonalLeave','tryPersonalLeaveDay')"/>
 									<lable id="tryPersonalLeaveDay">
 										<#if employeeSalary.tryPersonalLeave ??>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${employeeSalary.tryPersonalLeave / 8}
+											${employeeSalary.tryPersonalLeave / 8}
 										</#if>
 									</lable>天
 								</div>
@@ -288,7 +288,7 @@
 									<span class="formTitle">事假说明</span>
 								</div>
 								<div class="col-xs-9">
-									<input type="text" class="col-xs-10" id="personalRemark" name="personalRemark" value="${(employeeSalary.personalRemark)!""}"/>
+									<input type="text" class="col-xs-10" style="width:96.3333%" id="personalRemark" name="personalRemark" value="${(employeeSalary.personalRemark)!""}"/>
 								</div>
 							</div>
 						</div>
@@ -323,7 +323,7 @@
 									<input type="text" class="col-xs-9" id="sickLeave" name="sickLeave" value="${(employeeSalary.sickLeave)!""}"  onblur="toDay('sickLeave','sickLeaveDay')"/>
 									<lable id="sickLeaveDay">
 										<#if employeeSalary.sickLeave ??>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${employeeSalary.sickLeave / 8}
+											${employeeSalary.sickLeave / 8}
 										</#if>
 									</lable>天
 								</div>
@@ -336,7 +336,7 @@
 									<input type="text" class="col-xs-9" id="trySickLeave" name="trySickLeave" value="${(employeeSalary.trySickLeave)!""}" onblur="toDay('trySickLeave','trySickLeaveDay')"/>
 									<lable id="trySickLeaveDay">
 										<#if employeeSalary.trySickLeave ??>
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${employeeSalary.trySickLeave / 8}
+											${employeeSalary.trySickLeave / 8}
 										</#if>
 									</lable>天
 								</div>
@@ -351,7 +351,7 @@
 									<span class="formTitle">病假说明</span>
 								</div>
 								<div class="col-xs-9">
-									<input type="text" class="col-xs-10" id="sickRemark" name="sickRemark" value="${(employeeSalary.sickRemark)!""}"/>
+									<input type="text" class="col-xs-10" id="sickRemark"  style="width:96.3333%"  name="sickRemark" value="${(employeeSalary.sickRemark)!""}"/>
 								</div>
 							</div>
 						</div>
@@ -548,7 +548,7 @@
 							</div>
 							<div class="col-xs-4">
 								<div class="col-xs-5">
-									<label class="">工资及补偿总额:</label>	
+									<label class="">工资及补偿共:</label>	
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Rsum">
@@ -633,7 +633,6 @@
 									
 								</div>
 								<div class="col-xs-6" style="margin-top:20px;margin-bottom:70px;">
-									<button type="button" class="btn btn-info" onclick="saveEmployeeSalary('1')">保存</button>
 									<button type="button" class="btn" onclick="goList()">取消</button>
 								</div>
 							</div>
@@ -647,7 +646,7 @@
 <script>
 	//表单验证
 	$("document").ready(function(){
-		$('#saveEmployeeSalary').compValidate({
+		$('#saveEmployeeSalary').validate({
 			onkeyup: false,
 			onfocusout: function(element) {if ($(element).val()) $(element).valid(); },
 			debug:false,
@@ -760,26 +759,26 @@
 				},
 			},
 			messages: {
-				salaryDate: {required:$.format("薪资年月不能为空."),
-								remote:$.format("本薪资年月已合算工资")},
-				adjustment: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				allowance: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				rewardAmount: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				other: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				resignMoney: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				punish: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				overTime: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				fundMoney: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				personalLeave: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				tryPersonalLeave: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				annualLeave: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				sickLeave: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				trySickLeave: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				marriageLeave: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				maternityLeave: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				funeralLeave: {number:$.format("必须输入合法的数字（负数，小数）.")},
-				fullTime: {required:$.format("应出勤天数不能为空."),
-						   number:$.format("必须输入合法的数字（负数，小数）.")}
+				salaryDate: {required:"薪资年月不能为空.",
+								remote:"本薪资年月已合算工资"},
+				adjustment: {number:"必须输入合法的数字（负数，小数）."},
+				allowance: {number:"必须输入合法的数字（负数，小数）."},
+				rewardAmount: {number:"必须输入合法的数字（负数，小数）."},
+				other: {number:"必须输入合法的数字（负数，小数）."},
+				resignMoney: {number:"必须输入合法的数字（负数，小数）."},
+				punish: {number:"必须输入合法的数字（负数，小数）."},
+				overTime: {number:"必须输入合法的数字（负数，小数）."},
+				fundMoney: {number:"必须输入合法的数字（负数，小数）."},
+				personalLeave: {number:"必须输入合法的数字（负数，小数）."},
+				tryPersonalLeave: {number:"必须输入合法的数字（负数，小数）."},
+				annualLeave: {number:"必须输入合法的数字（负数，小数）."},
+				sickLeave: {number:"必须输入合法的数字（负数，小数）."},
+				trySickLeave: {number:"必须输入合法的数字（负数，小数）."},
+				marriageLeave: {number:"必须输入合法的数字（负数，小数）."},
+				maternityLeave: {number:"必须输入合法的数字（负数，小数）."},
+				funeralLeave: {number:"必须输入合法的数字（负数，小数）."},
+				fullTime: {required:"应出勤天数不能为空.",
+						   number:"必须输入合法的数字（负数，小数）."}
 			},
 			highlight: function(element) {
 				$(element).closest('div').addClass("f_error");
