@@ -21,10 +21,10 @@
 						<div class="row-fluid">
 							<div class="col-xs-4">
 								<div class="col-xs-5">
-									<span class="formTitle">薪资年月<span class="f_waring">*</span></span>
+									<span class="formTitle">薪资年月</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 											${(employeeSalary.salaryDate)!""}
 									</label>
 								</div>
@@ -34,8 +34,8 @@
 									<span class="formTitle">上月调整</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
-										${(employeeSalary.adjustment)!""}
+									<label class="viewLable">
+										${(employeeSalary.adjustment)!"0"}<#if employeeSalary.adjustment == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -45,8 +45,8 @@
 								</div>
 								<div class="col-xs-6"> 
 									
-									<label class="">
-										${(employeeSalary.allowance)!""}
+									<label class="viewLable">
+										${(employeeSalary.allowance)!"0"}<#if employeeSalary.allowance == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -59,7 +59,7 @@
 									<span class="formTitle">奖金内容</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.rewardItems)!""}
 									</label>
 								</div>
@@ -69,8 +69,8 @@
 									<span class="formTitle">奖金金额</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
-										${(employeeSalary.rewardAmount)!""}
+									<label class="viewLable">
+										${(employeeSalary.rewardAmount)!"0"}<#if employeeSalary.rewardAmount == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -79,7 +79,7 @@
 									<span class="formTitle">奖金时间</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.rewardTime)!""}
 									</label>
 								</div>
@@ -93,8 +93,8 @@
 									<span class="formTitle">代扣款</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
-										${(employeeSalary.other)!""}
+									<label class="viewLable">
+										${(employeeSalary.other)!"0"}<#if employeeSalary.other == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -103,8 +103,8 @@
 									<span class="formTitle">离职补偿金</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
-										${(employeeSalary.resignMoney)!""}
+									<label class="viewLable">
+										${(employeeSalary.resignMoney)!"0"}<#if employeeSalary.resignMoney == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -114,8 +114,8 @@
 								</div>
 								<div class="col-xs-6">
 									
-									<label class="">
-										${(employeeSalary.punish)!""}
+									<label class="viewLable">
+										${(employeeSalary.punish)!"0"}<#if employeeSalary.punish == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -125,20 +125,20 @@
 						<div class="row-fluid">
 							<div class="col-xs-4">
 								<div class="col-xs-5">
-									<span class="formTitle">是否全勤<span class="f_waring">*</span></span>
+									<span class="formTitle">是否全勤</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.isFullTimeDic.name)!""}
 									</label>
 								</div>
 							</div>
 							<div class="col-xs-4">
 								<div class="col-xs-5">
-									<span class="formTitle">应出勤天数<span class="f_waring">*</span></span>
+									<span class="formTitle">应出勤天数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.fullTime)!""}
 									</label>
 								</div>
@@ -148,7 +148,7 @@
 									<span class="formTitle">加班小时数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.overTime)!""}
 									</label>
 								</div>
@@ -159,20 +159,20 @@
 						<div class="row-fluid">
 							<div class="col-xs-4">
 								<div class="col-xs-5">
-									<span class="formTitle">是否有加班费<span class="f_waring">*</span></span>
+									<span class="formTitle">是否有加班费</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.isFixedDic.name)!""}
 									</label>
 								</div>
 							</div>
 							<div class="col-xs-4">
 								<div class="col-xs-5">
-									<span class="formTitle">公积金自缴<span class="f_waring">*</span></span>
+									<span class="formTitle">公积金自缴</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.isSelfDic.name)!""}
 									</label>
 								</div>
@@ -182,8 +182,8 @@
 									<span class="formTitle">公积金金额</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
-										${(employeeSalary.fundMoney)!""}
+									<label class="viewLable">
+										${(employeeSalary.fundMoney)!"0"}<#if employeeSalary.fundMoney == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -196,7 +196,7 @@
 									<span class="formTitle">电脑补贴</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.isComputerDic.name)!""}
 									</label>
 								</div>
@@ -206,7 +206,7 @@
 									<span class="formTitle">转正事假小时数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.personalLeave)!""}
 									</label>
 								</div>
@@ -216,7 +216,7 @@
 									<span class="formTitle">试用期事假小时数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.tryPersonalLeave)!""}
 									</label>
 								</div>
@@ -230,7 +230,7 @@
 									<span class="formTitle">事假说明</span>
 								</div>
 								<div class="col-xs-9">
-									<label class="">
+									<label style="margin-left:2.7%;margin-top:1%">
 										${(employeeSalary.personalRemark)!""}
 									</label>
 								</div>
@@ -244,7 +244,7 @@
 									<span class="formTitle">年假天数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.annualLeave)!""}
 									</label>
 								</div>
@@ -254,7 +254,7 @@
 									<span class="formTitle">年假说明</span>
 								</div>
 								<div class="col-xs-9">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.annualRemark)!""}
 									</label>
 								</div>
@@ -268,7 +268,7 @@
 									<span class="formTitle">转正病假小时数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.sickLeave)!""}
 									</label>
 								</div>
@@ -278,7 +278,7 @@
 									<span class="formTitle">试用期病假小时数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.trySickLeave)!""}
 									</label>
 								</div>
@@ -293,7 +293,7 @@
 									<span class="formTitle">病假说明</span>
 								</div>
 								<div class="col-xs-9">
-									<label class="">
+									<label style="margin-left:2.7%;margin-top:1%">
 										${(employeeSalary.sickRemark)!""}
 									</label>
 								</div>
@@ -307,7 +307,7 @@
 									<span class="formTitle">婚假天数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.marriageLeave)!""}
 									</label>
 								</div>
@@ -317,7 +317,7 @@
 									<span class="formTitle">婚假说明</span>
 								</div>
 								<div class="col-xs-9">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.marriageRemark)!""}
 									</label>
 								</div>
@@ -331,7 +331,7 @@
 									<span class="formTitle">产假天数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.maternityLeave)!""}
 									</label>
 								</div>
@@ -341,7 +341,7 @@
 									<span class="formTitle">产假说明</span>
 								</div>
 								<div class="col-xs-9">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.maternityRemark)!""}
 									</label>
 								</div>
@@ -355,7 +355,7 @@
 									<span class="formTitle">丧假天数</span>
 								</div>
 								<div class="col-xs-6">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.funeralLeave)!""}
 									</label>
 								</div>
@@ -365,7 +365,7 @@
 									<span class="formTitle">丧假说明</span>
 								</div>
 								<div class="col-xs-9">
-									<label class="">
+									<label class="viewLable">
 										${(employeeSalary.funeralRemark)!""}
 									</label>
 								</div>
@@ -383,7 +383,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="RabsenceDay">
-											${(salaryResult.absenceDay)!""}
+											${(salaryResult.absenceDay)!"0"}<#if salaryResult.absenceDay == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -393,7 +393,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="RabsenceMoney">
-											${(salaryResult.absenceMoney)!""}
+											${(salaryResult.absenceMoney)!"0"}<#if salaryResult.absenceMoney == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -403,7 +403,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="RoverTimeMoney">
-											${(salaryResult.overTimeMoney)!""}
+											${(salaryResult.overTimeMoney)!"0"}<#if salaryResult.overTimeMoney == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -417,7 +417,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="RattendanceMoney">
-											${(salaryResult.attendanceMoney)!""}
+											${(salaryResult.attendanceMoney)!"0"}<#if salaryResult.attendanceMoney == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -427,7 +427,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Rpromotion">
-											${(salaryResult.promotion)!""}
+											${(salaryResult.promotion)!"0"}<#if salaryResult.promotion == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -437,7 +437,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Rreward">
-											${(salaryResult.reward)!""}
+											${(salaryResult.reward)!"0"}<#if salaryResult.reward == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -451,7 +451,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Rallowance">
-											${(salaryResult.allowance)!""}
+											${(salaryResult.allowance)!"0"}<#if salaryResult.allowance == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -461,7 +461,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="RmealSupplement">
-											${(salaryResult.mealSupplement)!""}
+											${(salaryResult.mealSupplement)!"0"}<#if salaryResult.mealSupplement == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -471,7 +471,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="RcomputerSupplement">
-											${(salaryResult.computerSupplement)!""}
+											${(salaryResult.computerSupplement)!"0"}<#if salaryResult.computerSupplement == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -485,7 +485,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Radjustment">
-											${(salaryResult.adjustment)!""}
+											${(salaryResult.adjustment)!"0"}<#if salaryResult.adjustment == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -495,17 +495,17 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Rcompensate">
-											${(salaryResult.compensate)!""}
+											${(salaryResult.compensate)!"0"}<#if salaryResult.compensate == "">0</#if>
 									</label>
 								</div>
 							</div>
 							<div class="col-xs-4">
 								<div class="col-xs-5">
-									<label class="">工资及补偿总额:</label>	
+									<label class="">工资及补偿共:</label>	
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Rsum">
-											${(salaryResult.sum)!""}
+											${(salaryResult.sum)!"0"}<#if salaryResult.sum == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -519,7 +519,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="RsocialSecurity">
-											${(salaryResult.socialSecurity)!""}
+											${(salaryResult.socialSecurity)!"0"}<#if salaryResult.socialSecurity == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -529,7 +529,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="RfundMoney">
-											${(salaryResult.fundMoney)!""}
+											${(salaryResult.fundMoney)!"0"}<#if salaryResult.fundMoney == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -539,7 +539,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Rpunish">
-											${(salaryResult.punish)!""}
+											${(salaryResult.punish)!"0"}<#if salaryResult.punish == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -553,7 +553,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Rother">
-											${(salaryResult.other)!""}
+											${(salaryResult.other)!"0"}<#if salaryResult.other == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -563,7 +563,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="Rtax">
-											${(salaryResult.tax)!""}
+											${(salaryResult.tax)!"0"}<#if salaryResult.tax == "">0</#if>
 									</label>
 								</div>
 							</div>
@@ -573,7 +573,7 @@
 								</div>
 								<div class="col-xs-6">
 									<label class="" id="RfinnalMoney">
-											${(salaryResult.finnalMoney)!""}
+											${(salaryResult.finnalMoney)!"0"}<#if salaryResult.finnalMoney == "">0</#if>
 									</label>
 								</div>
 							</div>

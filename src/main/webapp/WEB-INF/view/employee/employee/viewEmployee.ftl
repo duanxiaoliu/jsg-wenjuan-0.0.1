@@ -70,7 +70,7 @@
 										<option value="">请选择...</option>
 										<#if employee.customer ??>
 											<#list customerList as customer>
-												<#if dic.id == employee.customer.id>
+												<#if customer.id == employee.customer.id>
 													<option value="${customer.id}" selected="selected">${customer.name}</option>
 												<#else>
 													<option value="${customer.id}">${customer.name}</option>
@@ -105,7 +105,7 @@
 										<option value="">请选择...</option>
 										<#if employee.register ??>
 											<#list registerList as register>
-												<#if dic.id == employee.register.id>
+												<#if register.id == employee.register.id>
 													<option value="${register.id}" selected="selected">${register.name}</option>
 												<#else>
 													<option value="${register.id}">${register.name}</option>
