@@ -22,12 +22,12 @@
 					<div class="row-fluid">
 						<div class="col-xs-6">
 							<span class="formTitle">薪资年月</span>
-							<input style="cursor:auto;background-color:#fff;height:30px;" id="salaryDate" class="Wdate col-xs-5" name="salaryDate"  value="${(salaryResult.salaryDate)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM',minDate:'%y-%M',isShowClear:true,readOnly:true})"/>
+							<input style="cursor:auto;background-color:#fff;height:30px;" id="salaryDate" class="Wdate col-xs-5" name="salaryDate"  value="${(salaryResult.salaryDate)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowClear:true,readOnly:true})"/>
 						</div>
 					</div>
 				</div>
 				<div class="btnCenter">
-					<button type="button" class="btn btn-info" onclick="queryEmployee()">查询</button>
+					<button type="button" class="btn btn-info" onclick="queryEmployeeSalary()">查询</button>
 				</div>
 			</form>
 			<hr class="Divider"/>
@@ -39,7 +39,7 @@
 								<div class="dt_actions">
 									<div class="row-fluid">
 										<button class="btn btn-info" type="button" onclick="addEmployeeSalary('${(salaryResult.employee.id)!""}')">新增</button>
-										<button class="btn btn-info" type="button" onclick="exportEmployeeSalary('${(salaryResult.employee.id)!""}')">导出</button>
+										<button class="btn btn-info" type="button" onclick="exportEmployeeSalary()">导出</button>
 									</div>
 								</div>
 							</div>
@@ -131,7 +131,12 @@
 			}
 		});
 	}
+	//导出
+	function exportEmployeeSalary(){
 	
+		$('#queryEmployeeSalary').attr('action','${contextPath}/employeeManage/employeeSalary/ope-query/exportEmployeeSalary.do?employeeId='+employeeId+'&salaryDate='+salaryDate);
+		$('#queryEmployeeSalary').submit();
+	}
 </script>
 </body>
 </html>

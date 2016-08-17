@@ -48,7 +48,7 @@
                 <ul class="nav nav-list menu-second">
                     <li><a id="customerManage" href="${contextPath}/employeeManage/customerManage/queryCustomer.do?menuPid='collapseThree'&menuId='customerManage'&menutext=员工管理 \ 客户信息维护"><i class="icon-user"></i> 客户信息维护</a></li>
                     <li><a id="employeeManage" href="${contextPath}/employeeManage/EmployeeManage/queryEmployee.do?menuPid='collapseThree'&menuId='employeeManage'&menutext=员工管理 \ 员工信息维护"><i class="icon-user"></i> 员工信息维护</a></li>
-                    <li><a href="#"><i class="icon-trash"></i> 子选项3</a></li>
+                    <li><a id="salaryThinkManage" href="${contextPath}/employeeManage/salaryThinkManage/querySalaryThinkManage.do?menuPid='collapseThree'&menuId='salaryThinkManage'&menutext=员工管理 \ 薪资分析"><i class="icon-trash"></i> 员工薪资分析</a></li>
                     <li><a href="#"><i class="icon-list"></i> 子选项4</a></li>
                 </ul>
             </div>

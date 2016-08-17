@@ -586,7 +586,7 @@
 									
 								</div>
 								<div class="col-xs-6" style="margin-top:20px;margin-bottom:70px;">
-									<button type="button" class="btn" onclick="goList()">取消</button>
+									<button type="button" class="btn" onclick="goList('${(employeeSalary.employee.id)!""}')">取消</button>
 								</div>
 							</div>
 						</div>
@@ -598,8 +598,8 @@
 </div>
 <script>
 	//返回
-	function goList(){
-		window.location.href="${contextPath}/employeeManage/employeeSalary/ope-query/queryEmployeeSalary.do?flag=1";
+	function goList(employeeId){
+		window.location.href="${contextPath}/employeeManage/employeeSalary/ope-query/queryEmployeeSalary.do?flag=1&&employee.id="+employeeId;
 	}
 </script>
 </body>

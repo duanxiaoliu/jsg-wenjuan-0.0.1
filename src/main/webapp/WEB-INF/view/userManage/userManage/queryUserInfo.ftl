@@ -31,7 +31,7 @@
 					<div class="row-fluid">
 						<div class="col-xs-6">
 							<span class="formTitle">性别</span>
-							<select size="1" id="genderDic" class="col-xs-5" name="genderDic.id" aria-controls="dt_gal">
+							<select size="1" id="genderDic" class="col-xs-5 selectM" name="genderDic.id" aria-controls="dt_gal">
 								<option value="">请选择...</option>
 								<#if user.genderDic ??>
 									<#list genderDicList as dic>
@@ -50,7 +50,7 @@
 						</div>
 						<div class="col-xs-6">
 							<span class="formTitle">状态</span>
-							<select size="1" id="statusDic" class="col-xs-5" name="statusDic.id" aria-controls="dt_gal">
+							<select size="1" id="statusDic" class="col-xs-5 selectM" name="statusDic.id" aria-controls="dt_gal">
 								<option value="">请选择...</option>
 								<#if user.statusDic ??>
 									<#list statusDicList as dic>

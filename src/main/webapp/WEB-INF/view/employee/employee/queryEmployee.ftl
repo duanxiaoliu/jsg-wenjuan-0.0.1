@@ -9,7 +9,8 @@
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="${contextPath}/css/style.css"/>
     <link rel="stylesheet" href="${contextPath}/css/font-awesome.min.css"/>
-
+	<link rel="stylesheet" href="${contextPath}/js/My97DatePicker/skin/WdatePicker.css"/>
+    <script src="${contextPath}/js/My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
 <div id="contentwrapper">
@@ -32,7 +33,7 @@
 					<div class="row-fluid">
 						<div class="col-xs-6">
 							<span class="formTitle">所在部门</span>
-							<select size="1" id="department" class="col-xs-5" name="department.id" aria-controls="dt_gal" onchange="changeCheck(this)">
+							<select size="1" id="department" class="col-xs-5 selectM" name="department.id" aria-controls="dt_gal" onchange="changeCheck(this)">
 								<option value="">请选择...</option>
 								<#if employee.department ??>
 									<#list departmentDicList as dic>
@@ -51,7 +52,7 @@
 						</div>
 						<div class="col-xs-6">
 							<span class="formTitle">所在客户</span>
-							<select size="1" id="customer" class="col-xs-5 " name="customer.id" aria-controls="dt_gal">
+							<select size="1" id="customer" class="col-xs-5 selectM" name="customer.id" aria-controls="dt_gal">
 								<option value="">请选择...</option>
 								<#if employee.customer ??>
 									<#list customerList as dic>
@@ -82,8 +83,10 @@
 							<div class="col-xs-10">
 								<div class="dt_actions">
 									<div class="row-fluid">
-										<button class="btn btn-info" type="button" onclick="addEmployee()">新增</button>
-										<button class="btn btn-info" type="button" onclick="exportEmployeeSalaryMouth()">导出单个月份员工薪资信息</button>
+										<button class="btn btn-info" type="button" onclick="addEmployee()" style="float:left;">新增</button>
+										<button class="btn btn-info" type="button" onclick="exportEmployeeSalaryMouth()" style="float:left; margin-left:10px;margin-right:10px;">导出单个月份员工薪资信息</button>
+										<input style="cursor:auto;background-color:#fff;height:30px;" id="salaryDate" class="Wdate col-xs-2" name="salaryDate" value="" onfocus="WdatePicker({dateFmt:'yyyy-MM',isShowClear:true,readOnly:true})" onchange="checkSalaryDate()"/>
+										<span id="dateError" style="float:right;margin-right:180px;padding-top:8px;color:red;"></span>
 									</div>
 								</div>
 							</div>
@@ -131,8 +134,25 @@
 			
 		</div>
 	</div>
+	<!-- Modal -->
+	<div class="modal hide fade" id="myModal">
+		<div class="modal-header">
+			<button class="close" data-dismiss="modal">×</button>
+			<h3 id="myModalLabel">选择导出月份</h3>
+		</div>
+		<div class="modal-body" id="editStudent">
+			fdfffffffffffffffff
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn">关闭</a>
+			<a href="#" class="btn btn-primary" onclick="exportEmployeeMouth()">确定</a>
+		</div>
+	</div>
 </div>
 <script>
+	$(function(){
+		$('#myModal').modal('hide');
+	});
 	//查询
 	function queryEmployee(){
 		$('#queryEmployee').attr('action','${contextPath}/employeeManage/EmployeeManage/ope-query/queryEmployee.do');
@@ -179,6 +199,27 @@
 	function editEmployeeSalary(id){
 		$('#queryEmployee').attr('action','${contextPath}/employeeManage/employeeSalary/ope-query/queryEmployeeSalary.do?employee.id='+id);
 		$('#queryEmployee').submit();
+	}
+	//验证导出月份
+	function checkSalaryDate(){
+		var salaryDate = $('#salaryDate').val();
+		if(salaryDate=="" || salaryDate==null){
+
+		}else{
+			$('#salaryDate').css('border','');
+			$('#dateError').text("");
+		}
+	}
+	//按月份导出员工工资
+	function exportEmployeeSalaryMouth(){
+		var salaryDate = $('#salaryDate').val();
+		if(salaryDate=="" || salaryDate==null){
+			$('#salaryDate').css('border','1px solid red');
+			$('#dateError').text("请选择要导出工资的月份！");
+		}else{
+			$('#queryEmployee').attr('action','${contextPath}/employeeManage/employeeSalary/ope-query/exportEmployeeSalaryMouth.do?salaryDate='+salaryDate);
+			$('#queryEmployee').submit();
+		}
 	}
 </script>
 </body>

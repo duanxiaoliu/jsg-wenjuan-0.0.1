@@ -36,7 +36,7 @@
 									<span class="formTitle">性别<span class="f_waring">*</span></span>
 								</div>
 								<div class="col-xs-6">
-									<select size="1" id="genderDic" class="col-xs-9" name="genderDic.id" aria-controls="dt_gal">
+									<select size="1" id="genderDic" class="col-xs-9 selectM" name="genderDic.id" aria-controls="dt_gal">
 										<option value="">请选择...</option>
 										<#if user.genderDic ??>
 											<#list genderDicList as dic>
@@ -62,7 +62,7 @@
 									<span class="formTitle">证件类型</span>
 								</div>
 								<div class="col-xs-6">
-									<select size="1" id="cerTypeDic" class="col-xs-9" name="cerTypeDic.id" aria-controls="dt_gal" onchange="changeCheck(this)">
+									<select size="1" id="cerTypeDic" class="col-xs-9 selectM" name="cerTypeDic.id" aria-controls="dt_gal" onchange="changeCheck(this)">
 										<option value="">请选择...</option>
 										<#if user.cerTypeDic ??>
 											<#list cardtypeDicList as dic>
@@ -96,7 +96,7 @@
 									<span class="formTitle">出生日期</span>
 								</div>
 								<div class="col-xs-6">
-									<input style="cursor:auto;background-color:#fff;" id="birthday" class="Wdate col-xs-9" name="birthday"  value="${(user.birthday)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{%d}',isShowClear:true,readOnly:true})"/>
+									<input style="cursor:auto;background-color:#fff;" id="birthday" class="Wdate col-xs-9 selectM" name="birthday"  value="${(user.birthday)!""}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'%y-%M-{%d}',isShowClear:true,readOnly:true})"/>
 								</div>
 							</div>
 							<div class="col-xs-6">
@@ -156,7 +156,7 @@
 									<span class="formTitle">状态</span>
 								</div>
 								<div class="col-xs-6">
-									<select size="1" id="statusDic" class="col-xs-9"  name="statusDic.id" aria-controls="dt_gal">
+									<select size="1" id="statusDic" class="col-xs-9 selectM"  name="statusDic.id" aria-controls="dt_gal">
 										<option value="">请选择...</option>
 										<#if user.statusDic ??>
 											<#list statusDicList as dic>
