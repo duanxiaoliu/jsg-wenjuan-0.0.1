@@ -51,7 +51,8 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		 <property name="dataSource" ref="dataSource" />
-		 <!-- 分包开发时，配置扫描子包下的hibernate文件 -->
+		 
+		 <!-- 分包开发时，配置扫描子包下的hibernate   xml实体配置文件 -->
 		 <property name="mappingJarLocations">
 		 	<list>
 		 		<value>WEB-INF/lib/*.jar</value>
@@ -88,8 +89,10 @@
 	<!--启动注解用注解来管理事务 
     <tx:annotation-driven transaction-manager="txManager"/> --> 
  	<!-- 自动扫面注解包  -->
-	
+ 	
+	<!-- 启用自动装配 -->
 	<context:annotation-config/>
+	
 	<context:component-scan base-package="com.jsg" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
